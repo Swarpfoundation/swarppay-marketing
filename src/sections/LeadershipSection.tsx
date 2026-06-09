@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const team = [
-  { initials: 'SM', name: 'Salah Eddine Maniar', role: 'Founder & CEO', bio: 'Founder leading SWARP across product, partnerships, and Morocco market access.' },
+  { initials: 'SM', name: 'Salah Eddine Maniar', role: 'Founder & CEO', bio: 'Founder leading SWARP across product, partnerships, and Morocco market access.', image: '/team/salah.png' },
   { initials: 'SM', name: 'Steve Mancini', role: 'Cofounder', bio: 'Cofounder supporting business development, partnerships, and expansion strategy.', image: '/team/steve.png' },
   { initials: 'DD', name: 'David Dobrovitsky', role: 'General Manager', bio: 'General Manager focused on operations, growth, and commercial execution.', image: '/team/david.jpg' },
   { initials: 'DM', name: 'Devon Martens', role: 'CTO', bio: 'CTO responsible for platform architecture, product delivery, and technical execution.', image: '/team/devon.jpg' },
