@@ -6,6 +6,13 @@ const socialLinks = [
   { label: 'Facebook', href: 'https://www.facebook.com/people/Swarp-Pay/61579879769479/' },
 ];
 
+const legalLinks = [
+  { label: 'Terms', href: '/legal.html#terms' },
+  { label: 'Privacy', href: '/legal.html#privacy' },
+  { label: 'Cookies', href: '/legal.html#cookies' },
+  { label: 'Contact: info@swarppay.com', href: 'mailto:info@swarppay.com' },
+];
+
 export function Footer() {
   return (
     <footer className="relative w-full py-14 px-6 lg:px-16 bg-black border-t border-white/5">
@@ -41,9 +48,20 @@ export function Footer() {
             ))}
           </div>
         </div>
-        <p className="mt-10 border-t border-white/5 pt-6 text-xs text-white/25">
-          &copy; 2025 SwarpPay. All rights reserved.
-        </p>
+        <div className="mt-10 flex flex-col gap-4 border-t border-white/5 pt-6 md:flex-row md:items-center md:justify-between">
+          <p className="text-xs text-white/25">&copy; 2025 SwarpPay. All rights reserved.</p>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {legalLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-xs text-white/35 transition-colors hover:text-gold"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </footer>
   );

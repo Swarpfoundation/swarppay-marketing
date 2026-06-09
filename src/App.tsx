@@ -12,6 +12,7 @@ import { ExpansionSection } from '@/sections/ExpansionSection';
 import { LeadershipSection } from '@/sections/LeadershipSection';
 import { CTASection } from '@/sections/CTASection';
 import { Footer } from '@/sections/Footer';
+import { CookieBanner } from '@/components/CookieBanner';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,6 +62,7 @@ function App() {
         <CTASection />
         <Footer />
       </main>
+      <CookieBanner />
     </>
   );
 }
