@@ -5,10 +5,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const navLinks = [
-  { label: 'Product', href: '#solution' },
-  { label: 'Market', href: '#market' },
-  { label: 'Leadership', href: '#leadership' },
-  { label: 'Invest', href: '#cta' },
+  { label: 'Products', href: '#solution' },
+  { label: 'Merchants', href: '#merchants' },
+  { label: 'How It Works', href: '#how-it-works' },
+  { label: 'Team', href: '#leadership' },
 ];
 
 export function Navigation() {
@@ -77,7 +77,7 @@ export function Navigation() {
           onClick={(e) => handleClick(e, '#cta')}
           className="text-xs font-semibold tracking-widest uppercase px-5 py-2.5 border border-gold/40 text-gold hover:bg-gold hover:text-black transition-all duration-300"
         >
-          Invest
+          Start
         </a>
       </div>
     </nav>

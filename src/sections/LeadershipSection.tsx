@@ -1,39 +1,17 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { MagneticElement } from '@/components/MagneticElement';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const team = [
-  {
-    initials: 'SE',
-    name: 'Salah Eddine Maniar',
-    role: 'Founder & CEO',
-    bio: 'Multiple successful exits. Several companies under management. Strong network across Africa and institutional markets.',
-    linkedin: 'salah-eddine-maniar',
-  },
-  {
-    initials: 'DD',
-    name: 'David Dobrovitsky',
-    role: 'General Manager',
-    bio: '10 years C-suite across blockchain, fintech, and financial services. Scaling strategic execution in regulated markets.',
-    linkedin: 'david-dobrovitsky',
-  },
-  {
-    initials: 'EL',
-    name: 'Eleonora Landi',
-    role: 'Head of Compliance',
-    bio: 'Deep expertise in compliance, governance, and regulatory controls. Builds the institutional trust architecture partners require.',
-    linkedin: 'eleonora-landi-6378b62b4',
-  },
-  {
-    initials: 'BL',
-    name: 'Barbara Lang, PhD',
-    role: 'Advisor',
-    bio: 'Managing Partner, InnoExc GmbH (Zurich). Ex-CEO Switzerland, Celerant Consulting. IBM. Blockchain & DLT advisory.',
-    linkedin: '',
-  },
+  { initials: 'SM', name: 'Salah Eddine Maniar', role: 'Founder & CEO', bio: 'Founder leading SWARP across product, partnerships, and Morocco market access.' },
+  { initials: 'SM', name: 'Steve Mancini', role: 'Cofounder', bio: 'Cofounder supporting business development, partnerships, and expansion strategy.' },
+  { initials: 'DD', name: 'David Dobrovitsky', role: 'General Manager', bio: 'General Manager focused on operations, growth, and commercial execution.' },
+  { initials: 'DM', name: 'Devon Martens', role: 'CTO', bio: 'CTO responsible for platform architecture, product delivery, and technical execution.' },
+  { initials: 'GB', name: 'Gorkhmaz Beydullayev', role: 'COO', bio: 'COO supporting operations, systems, and partner implementation.' },
+  { initials: 'EL', name: 'Eleonora Landi', role: 'Head of Compliance', bio: 'Head of Compliance supporting governance, process, and partner readiness.' },
+  { initials: 'AF', name: 'Angelo Formisano', role: 'Head of Marketing', bio: 'Head of Marketing focused on brand, campaigns, and market communication.' },
 ];
 
 export function LeadershipSection() {
@@ -68,8 +46,8 @@ export function LeadershipSection() {
           {
             y: 0,
             opacity: 1,
-            duration: 0.8,
-            stagger: 0.12,
+            duration: 0.7,
+            stagger: 0.08,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: teamRef.current,
@@ -88,58 +66,37 @@ export function LeadershipSection() {
     <section
       ref={sectionRef}
       id="leadership"
-      className="relative w-full py-32 lg:py-48 px-6 lg:px-16 bg-[#0a0a0a]"
+      className="relative w-full py-28 px-6 lg:px-16 bg-black"
     >
       <div className="max-w-7xl mx-auto">
-        <div ref={titleRef} className="mb-20 lg:mb-28">
+        <div ref={titleRef} className="mb-14">
           <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-4">
-            Leadership
+            Team
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-white leading-[0.95] tracking-tight max-w-4xl">
-            Experienced Team.
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-[0.95] tracking-tight max-w-4xl">
+            The team
             <br />
-            <span className="text-gradient-gold">Regulated Market.</span>
+            <span className="text-gradient-gold">behind SWARP</span>
           </h2>
         </div>
 
-        <div ref={teamRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div ref={teamRef} className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
           {team.map((member) => (
-            <MagneticElement key={member.name} intensity={0.15} className="team-card">
-              <div className="group relative p-8 lg:p-10 border border-white/5 hover:border-gold/20 bg-black/30 hover:bg-black/50 transition-all duration-500">
-                <div className="flex items-start gap-6">
-                  {/* Avatar */}
-                  <div className="flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/10 group-hover:border-gold/30 transition-colors">
-                    <span className="text-2xl lg:text-3xl font-bold text-gold/60 group-hover:text-gold transition-colors">
-                      {member.initials}
-                    </span>
-                  </div>
-
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-lg lg:text-xl font-semibold text-white group-hover:text-gold transition-colors mb-1">
-                      {member.name}
-                    </h3>
-                    <p className="text-gold/60 text-xs tracking-wider uppercase mb-4">{member.role}</p>
-                    <p className="text-white/40 text-sm leading-relaxed">{member.bio}</p>
-
-                    {member.linkedin && (
-                      <a
-                        href={`https://linkedin.com/in/${member.linkedin}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 mt-4 text-white/30 hover:text-gold text-xs tracking-wider uppercase transition-colors"
-                      >
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                        </svg>
-                        LinkedIn
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-                <div className="absolute bottom-0 left-0 w-0 h-px bg-gold/40 group-hover:w-full transition-all duration-700" />
+            <article
+              key={member.name}
+              className="team-card group border border-white/5 bg-white/[0.02] p-6 transition-all duration-300 hover:border-gold/30 hover:bg-white/[0.04]"
+            >
+              <div className="mb-6 flex h-14 w-14 items-center justify-center border border-gold/20 bg-gold/5 text-sm font-bold text-gold">
+                {member.initials}
               </div>
-            </MagneticElement>
+              <h3 className="text-lg font-semibold text-white group-hover:text-gold transition-colors">
+                {member.name}
+              </h3>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-gold/60">
+                {member.role}
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-white/45">{member.bio}</p>
+            </article>
           ))}
         </div>
       </div>

@@ -9,28 +9,25 @@ const productDoors = [
   {
     icon: Gift,
     title: 'Gift Card Marketplace',
-    label: 'For customers',
     description:
-      'For customers who want to buy gift cards, gaming vouchers, streaming cards, telecom top-ups, and other prepaid products.',
+      'Buy digital vouchers, gaming credits, streaming cards, telecom top-ups, and prepaid products.',
     cta: 'Buy Gift Cards',
     href: 'https://giftcard.swarppay.com/',
   },
   {
     icon: Store,
     title: 'Merchant Portal',
-    label: 'For merchants & resellers',
     description:
-      'For retailers, shops, resellers, telecom sellers, cyber cafes, and local businesses that want to sell digital products to their customers.',
+      'Sell digital products to your customers, access the catalog, and track activity from one portal.',
     cta: 'Start Selling',
     href: 'https://merchant.swarppay.com/',
   },
   {
     icon: LayoutDashboard,
     title: 'Master Dashboard',
-    label: 'For approved partners',
     description:
-      'For internal operators, distributors, approved partners, or larger B2B accounts that need catalog, reporting, and distribution control.',
-    cta: 'Partner Dashboard',
+      'Manage product distribution, catalog access, reporting, and partner operations.',
+    cta: 'Open Dashboard',
     href: 'https://master.swarppay.com/',
   },
 ];
@@ -87,28 +84,25 @@ export function SolutionSection() {
     <section
       ref={sectionRef}
       id="solution"
-      className="relative w-full py-32 lg:py-48 px-6 lg:px-16 bg-[#0a0a0a]"
+      className="relative w-full py-28 px-6 lg:px-16 bg-[#0a0a0a]"
     >
       <div className="max-w-7xl mx-auto">
-        <div ref={titleRef} className="mb-20 lg:mb-28">
+        <div ref={titleRef} className="mb-16">
           <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-4">
-            Product
+            Products
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-white leading-[0.95] tracking-tight max-w-5xl">
-            Choose the right
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-[0.95] tracking-tight max-w-5xl">
+            Three ways to use
             <br />
-            <span className="text-gradient-gold">SwarpPay door.</span>
+            <span className="text-gradient-gold">SwarpPay.</span>
           </h2>
-          <p className="mt-8 max-w-2xl text-base md:text-lg leading-relaxed text-white/50">
-            Three clear entry points for customers, local sellers, and approved partners.
-          </p>
         </div>
 
         <div ref={productsRef} className="grid grid-cols-1 gap-5 lg:grid-cols-3">
           {productDoors.map((product, index) => (
             <article
               key={product.title}
-              className="product-door group relative flex min-h-[360px] flex-col border border-white/5 bg-black/30 p-7 transition-all duration-500 hover:-translate-y-2 hover:border-gold/30 hover:bg-black/50"
+              className="product-door group relative flex min-h-[330px] flex-col border border-white/5 bg-black/30 p-7 transition-all duration-500 hover:-translate-y-2 hover:border-gold/30 hover:bg-black/50"
             >
               <div className="mb-10 flex items-center justify-between">
                 <div className="flex h-12 w-12 items-center justify-center border border-gold/20 text-gold transition-colors group-hover:bg-gold/10">
@@ -117,9 +111,6 @@ export function SolutionSection() {
                 <span className="text-xs font-mono text-gold/40">0{index + 1}</span>
               </div>
 
-              <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-gold/70">
-                {product.label}
-              </p>
               <h3 className="text-2xl font-semibold text-white transition-colors group-hover:text-gold">
                 {product.title}
               </h3>

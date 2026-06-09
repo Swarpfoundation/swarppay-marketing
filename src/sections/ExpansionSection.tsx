@@ -1,62 +1,38 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Globe2, Store, Zap, Route } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const phases = [
+const reasons = [
   {
-    phase: '01',
-    period: 'Starting point',
-    title: 'Built for Morocco',
-    items: [
-      "Built for Morocco's digital commerce market",
-      'Focused on Moroccan retailers, consumers, and diaspora-linked demand',
-      'Starting with digital products and merchant distribution',
-      'Designed around local retail behavior and everyday prepaid demand',
-    ],
-    status: 'Now',
+    icon: Globe2,
+    title: 'Local market focus',
+    text: 'Moroccan and global product access',
   },
   {
-    phase: '02',
-    period: 'Network growth',
-    title: 'Retail Distribution',
-    items: [
-      'Merchant portal for shops, resellers, telecom sellers, and local businesses',
-      'Catalog access, reporting, and distribution control for approved partners',
-      'Expanded digital product categories based on market demand',
-      'Stronger B2B operations across Moroccan retail channels',
-    ],
-    status: 'Next',
+    icon: Store,
+    title: 'Merchant-first tools',
+    text: 'Built for retailers, resellers, and distribution partners',
   },
   {
-    phase: '03',
-    period: 'Long-term roadmap',
-    title: 'Diaspora Opportunity',
-    items: [
-      'Morocco receives more than USD 12.5B annually in diaspora value flow',
-      'Make diaspora-supported value easier to connect with everyday digital spending',
-      'Broader financial services considered only where legally and operationally appropriate',
-      'Potential expansion beyond Morocco after the core model is proven',
-    ],
-    status: 'Future',
+    icon: Zap,
+    title: 'Digital delivery',
+    text: 'Fast access to vouchers, top-ups, and prepaid products',
   },
-];
-
-const markets = [
-  { name: 'Morocco', role: 'Anchor & HQ', status: 'active' },
-  { name: 'Egypt', role: 'North Africa Entry', status: 'phase2' },
-  { name: 'Nigeria', role: 'West Africa Lead', status: 'phase2' },
-  { name: 'Kenya', role: 'East Africa Lead', status: 'phase2' },
-  { name: 'Ghana', role: 'High-Adoption', status: 'phase2' },
-  { name: 'Rwanda', role: 'High-Adoption', status: 'phase3' },
+  {
+    icon: Route,
+    title: 'Long-term platform vision',
+    text: 'Starting with digital products, expanding toward broader digital value services',
+  },
 ];
 
 export function ExpansionSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
-  const phasesRef = useRef<HTMLDivElement>(null);
-  const marketsRef = useRef<HTMLDivElement>(null);
+  const reasonsRef = useRef<HTMLDivElement>(null);
+  const diasporaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -77,19 +53,19 @@ export function ExpansionSection() {
         }
       );
 
-      const phaseCards = phasesRef.current?.querySelectorAll('.phase-card');
-      if (phaseCards) {
+      const cards = reasonsRef.current?.querySelectorAll('.reason-card');
+      if (cards) {
         gsap.fromTo(
-          phaseCards,
-          { y: 60, opacity: 0 },
+          cards,
+          { y: 50, opacity: 0 },
           {
             y: 0,
             opacity: 1,
-            duration: 0.8,
-            stagger: 0.15,
+            duration: 0.7,
+            stagger: 0.1,
             ease: 'power3.out',
             scrollTrigger: {
-              trigger: phasesRef.current,
+              trigger: reasonsRef.current,
               start: 'top 75%',
               toggleActions: 'play none none reverse',
             },
@@ -97,25 +73,21 @@ export function ExpansionSection() {
         );
       }
 
-      const marketItems = marketsRef.current?.querySelectorAll('.market-item');
-      if (marketItems) {
-        gsap.fromTo(
-          marketItems,
-          { scale: 0.9, opacity: 0 },
-          {
-            scale: 1,
-            opacity: 1,
-            duration: 0.6,
-            stagger: 0.08,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: marketsRef.current,
-              start: 'top 80%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        );
-      }
+      gsap.fromTo(
+        diasporaRef.current,
+        { y: 60, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: diasporaRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
     }, sectionRef);
 
     return () => ctx.revert();
@@ -124,82 +96,60 @@ export function ExpansionSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-32 lg:py-48 px-6 lg:px-16 bg-black"
+      id="why-swarp"
+      className="relative w-full py-28 px-6 lg:px-16 bg-[#0a0a0a]"
     >
       <div className="max-w-7xl mx-auto">
-        <div ref={titleRef} className="mb-20 lg:mb-28">
+        <div ref={titleRef} className="mb-14">
           <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-4">
-            Go to Market
+            Why SWARP
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-white leading-[0.95] tracking-tight max-w-5xl">
-            Built for Morocco.
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-[0.95] tracking-tight max-w-5xl">
+            Built for Morocco's
             <br />
-            <span className="text-gradient-gold">Ready to scale carefully.</span>
+            <span className="text-gradient-gold">digital commerce market</span>
           </h2>
           <p className="mt-8 max-w-2xl text-base md:text-lg leading-relaxed text-white/50">
-            SWARP is built for Morocco's digital commerce market, combining local retail
-            distribution with modern digital product infrastructure.
+            SwarpPay is a digital product and prepaid value platform for Morocco. Customers
+            can buy digital products. Merchants can sell them. Partners can distribute them.
           </p>
         </div>
 
-        <div ref={phasesRef} className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mb-20 lg:mb-28">
-          {phases.map((phase) => (
-            <div
-              key={phase.phase}
-              className="phase-card group relative p-8 lg:p-10 border border-white/5 hover:border-gold/20 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500"
+        <div ref={reasonsRef} className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {reasons.map((reason) => (
+            <article
+              key={reason.title}
+              className="reason-card border border-white/5 bg-black/30 p-6 transition-all duration-300 hover:border-gold/30 hover:bg-black/50"
             >
-              <div className="flex items-start justify-between mb-8">
-                <span className="text-6xl lg:text-7xl font-bold text-white/5 group-hover:text-gold/10 transition-colors leading-none">
-                  {phase.phase}
-                </span>
-                <span className={`text-[10px] tracking-wider uppercase px-3 py-1 border ${
-                  phase.status === 'Now'
-                    ? 'border-gold/30 text-gold bg-gold/5'
-                    : 'border-white/10 text-white/40'
-                }`}>
-                  {phase.status}
-                </span>
-              </div>
-
-              <p className="text-gold/60 text-xs tracking-wider uppercase mb-2">{phase.period}</p>
-              <h3 className="text-xl lg:text-2xl font-semibold text-white mb-6">{phase.title}</h3>
-
-              <ul className="space-y-3">
-                {phase.items.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-white/50 text-sm">
-                    <div className="w-1 h-1 bg-gold/40 rounded-full mt-2 flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
+              <reason.icon className="mb-8 h-6 w-6 text-gold/70" />
+              <h3 className="text-lg font-semibold text-white">{reason.title}</h3>
+              <p className="mt-4 text-sm leading-relaxed text-white/45">{reason.text}</p>
+            </article>
           ))}
         </div>
 
-        {/* Market Map */}
-        <div>
-          <p className="text-white/30 text-xs tracking-wider uppercase mb-8 text-center">
-            Target Markets
+        <div
+          ref={diasporaRef}
+          className="mt-20 border border-gold/15 bg-gold/[0.03] p-7 lg:p-10"
+        >
+          <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-4">
+            Diaspora
           </p>
-          <div ref={marketsRef} className="flex flex-wrap justify-center gap-3 lg:gap-4">
-            {markets.map((market) => (
-              <div
-                key={market.name}
-                className={`market-item px-5 py-3 border ${
-                  market.status === 'active'
-                    ? 'border-gold/30 bg-gold/5'
-                    : 'border-white/10 bg-white/[0.02]'
-                } hover:border-gold/30 transition-all duration-300`}
-              >
-                <p className={`text-sm font-semibold ${market.status === 'active' ? 'text-gold' : 'text-white'}`}>
-                  {market.name}
-                </p>
-                <p className="text-white/30 text-[10px] mt-0.5">{market.role}</p>
-              </div>
-            ))}
-          </div>
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Connecting Morocco with its global diaspora
+          </h3>
+          <p className="mt-6 max-w-3xl text-base md:text-lg leading-relaxed text-white/55">
+            Moroccans abroad send billions in value home every year. SWARP's long-term
+            vision is to connect that existing behavior with easier digital spending,
+            merchant access, prepaid products, and future partner-led financial services.
+          </p>
+          <a
+            href="#solution"
+            className="mt-8 inline-flex items-center gap-4 border border-gold/40 px-7 py-4 text-sm font-semibold uppercase tracking-[0.16em] text-gold transition-colors hover:bg-gold hover:text-black"
+          >
+            Explore SWARP products
+            <span aria-hidden="true">-&gt;</span>
+          </a>
         </div>
       </div>
     </section>
