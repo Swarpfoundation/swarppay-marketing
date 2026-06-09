@@ -71,8 +71,8 @@ export function CTASection() {
         </div>
         <p className="mt-8 text-sm text-white/45">
           For partnerships:{' '}
-          <a href="mailto:maniar@swarppay.com" className="text-gold hover:underline">
-            maniar@swarppay.com
+          <a href="mailto:info@swarppay.com" className="text-gold hover:underline">
+            info@swarppay.com
           </a>
         </p>
       </div>

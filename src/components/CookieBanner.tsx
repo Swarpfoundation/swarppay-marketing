@@ -41,7 +41,8 @@ function createConsent(preferences: OptionalPreferences): CookieConsent {
 
 function expireCookie(name: string, domain?: string) {
   const domainPart = domain ? `; domain=${domain}` : '';
-  document.cookie = `${name}=; path=/; max-age=0; SameSite=Lax${domainPart}`;
+  const securePart = window.location.protocol === 'https:' ? '; Secure' : '';
+  document.cookie = `${name}=; path=/; max-age=0; SameSite=Lax${securePart}${domainPart}`;
 }
 
 function clearOptionalCookies(consent: CookieConsent) {
@@ -100,16 +101,27 @@ function writeConsent(consent: CookieConsent) {
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
   localStorage.removeItem(LEGACY_STORAGE_KEY);
-  document.cookie = `${STORAGE_KEY}=${encodedConsent}; path=/; max-age=31536000; SameSite=Lax`;
+  const securePart = window.location.protocol === 'https:' ? '; Secure' : '';
+  document.cookie = `${STORAGE_KEY}=${encodedConsent}; path=/; max-age=31536000; SameSite=Lax${securePart}`;
   clearOptionalCookies(consent);
   window.swarppayCookieConsent = consent;
   window.dispatchEvent(new CustomEvent(CONSENT_CHANGE_EVENT, { detail: consent }));
 }
 
 export function CookieBanner() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(() => !readConsent());
   const [manageOpen, setManageOpen] = useState(false);
-  const [preferences, setPreferences] = useState<OptionalPreferences>(defaultPreferences);
+  const [preferences, setPreferences] = useState<OptionalPreferences>(() => {
+    const storedConsent = readConsent();
+
+    return storedConsent
+      ? {
+          functional: storedConsent.functional,
+          analytics: storedConsent.analytics,
+          marketing: storedConsent.marketing,
+        }
+      : defaultPreferences;
+  });
 
   useEffect(() => {
     const openPreferences = () => {
@@ -131,13 +143,6 @@ export function CookieBanner() {
 
     if (storedConsent) {
       writeConsent(storedConsent);
-      setPreferences({
-        functional: storedConsent.functional,
-        analytics: storedConsent.analytics,
-        marketing: storedConsent.marketing,
-      });
-    } else {
-      setVisible(true);
     }
 
     return () => {
