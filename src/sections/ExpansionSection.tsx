@@ -7,39 +7,39 @@ gsap.registerPlugin(ScrollTrigger);
 const phases = [
   {
     phase: '01',
-    period: '2025–2026',
-    title: 'Morocco Foundation',
+    period: 'Starting point',
+    title: 'Built for Morocco',
     items: [
-      'Regulatory licensing complete',
-      'Consumer wallet + merchant rails live',
-      'First institutional partnerships signed',
-      'Morocco B2B pipeline established',
+      "Built for Morocco's digital commerce market",
+      'Focused on Moroccan retailers, consumers, and diaspora-linked demand',
+      'Starting with digital products and merchant distribution',
+      'Designed around local retail behavior and everyday prepaid demand',
     ],
-    status: 'Operational Now',
+    status: 'Now',
   },
   {
     phase: '02',
-    period: '2026–2027',
-    title: 'Africa Expansion',
+    period: 'Network growth',
+    title: 'Retail Distribution',
     items: [
-      'Nigeria, Kenya, Ghana entry',
-      'Cross-border corridors activated',
-      'SME treasury product deployed',
-      'Strategic bank integrations live',
+      'Merchant portal for shops, resellers, telecom sellers, and local businesses',
+      'Catalog access, reporting, and distribution control for approved partners',
+      'Expanded digital product categories based on market demand',
+      'Stronger B2B operations across Moroccan retail channels',
     ],
-    status: 'Phase 2',
+    status: 'Next',
   },
   {
     phase: '03',
-    period: '2027–2029',
-    title: 'Continental Scale',
+    period: 'Long-term roadmap',
+    title: 'Diaspora Opportunity',
     items: [
-      'Full API platform for institutions',
-      'White-label deployed with 3+ banks',
-      '10+ active corridors operating',
-      'Series B institutional raise',
+      'Morocco receives more than USD 12.5B annually in diaspora value flow',
+      'Make diaspora-supported value easier to connect with everyday digital spending',
+      'Broader financial services considered only where legally and operationally appropriate',
+      'Potential expansion beyond Morocco after the core model is proven',
     ],
-    status: 'Phase 3',
+    status: 'Future',
   },
 ];
 
@@ -132,10 +132,14 @@ export function ExpansionSection() {
             Go to Market
           </p>
           <h2 className="text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-white leading-[0.95] tracking-tight max-w-5xl">
-            Phased Expansion.
+            Built for Morocco.
             <br />
-            <span className="text-gradient-gold">Institutional-Led.</span>
+            <span className="text-gradient-gold">Ready to scale carefully.</span>
           </h2>
+          <p className="mt-8 max-w-2xl text-base md:text-lg leading-relaxed text-white/50">
+            SWARP is built for Morocco's digital commerce market, combining local retail
+            distribution with modern digital product infrastructure.
+          </p>
         </div>
 
         <div ref={phasesRef} className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mb-20 lg:mb-28">
@@ -149,7 +153,7 @@ export function ExpansionSection() {
                   {phase.phase}
                 </span>
                 <span className={`text-[10px] tracking-wider uppercase px-3 py-1 border ${
-                  phase.status === 'Operational Now'
+                  phase.status === 'Now'
                     ? 'border-gold/30 text-gold bg-gold/5'
                     : 'border-white/10 text-white/40'
                 }`}>

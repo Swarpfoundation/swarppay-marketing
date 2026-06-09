@@ -1,15 +1,15 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { TrendingUp, Users, Smartphone, ArrowRightLeft } from 'lucide-react';
+import { Globe2, Store, Smartphone, ArrowRightLeft } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const marketStats = [
-  { icon: TrendingUp, value: '$3.4T', label: 'GDP by 2030', sub: '5%+ annual growth' },
-  { icon: Users, value: '1.4B', label: 'People', sub: "World's youngest market" },
-  { icon: Smartphone, value: '60%', label: 'Underbanked', sub: 'Directly addressable' },
-  { icon: ArrowRightLeft, value: '$100B+', label: 'Cross-Border Flows', sub: 'Priced at 4x global average' },
+  { icon: Globe2, value: '$12.5B+', label: 'Diaspora Value Flow', sub: 'Morocco receives annually' },
+  { icon: Store, value: 'Local', label: 'Retail Distribution', sub: 'Shops, resellers, and merchants' },
+  { icon: Smartphone, value: 'Digital', label: 'Product Demand', sub: 'Gift cards, vouchers, and top-ups' },
+  { icon: ArrowRightLeft, value: 'Long-Term', label: 'Diaspora Opportunity', sub: 'Connected everyday spending' },
 ];
 
 export function MarketSection() {
@@ -90,13 +90,17 @@ export function MarketSection() {
       <div className="relative max-w-7xl mx-auto">
         <div ref={titleRef} className="mb-20 lg:mb-28">
           <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-4">
-            Why Africa, Why Now
+            Market Context
           </p>
           <h2 className="text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-white leading-[0.95] tracking-tight max-w-5xl">
-            The Biggest Untapped
+            Morocco first.
             <br />
-            <span className="text-gradient-gold">Market on Earth.</span>
+            <span className="text-gradient-gold">Built for digital commerce.</span>
           </h2>
+          <p className="mt-8 max-w-2xl text-base md:text-lg leading-relaxed text-white/50">
+            SWARP is built for Morocco's digital commerce market, combining local retail
+            distribution with modern digital product infrastructure.
+          </p>
         </div>
 
         <div ref={statsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-20 lg:mb-28">
@@ -118,11 +122,12 @@ export function MarketSection() {
 
         <div ref={quoteRef} className="relative pl-6 lg:pl-10 border-l-2 border-gold/30">
           <p className="text-2xl md:text-3xl lg:text-4xl font-light text-white/80 leading-snug max-w-3xl">
-            "China 2000. Southeast Asia 2010. <span className="text-gold font-medium">Africa is 2025.</span>
-            Those who entered early built generational wealth."
+            Moroccans abroad send billions home every year. SWARP's long-term vision is
+            to make diaspora-supported value easier to connect with everyday digital
+            spending in Morocco.
           </p>
           <p className="mt-6 text-white/30 text-xs tracking-[0.2em] uppercase">
-            The infrastructure gap is real. The timing is now.
+            Morocco receives more than USD 12.5B annually in diaspora value flow.
           </p>
         </div>
       </div>

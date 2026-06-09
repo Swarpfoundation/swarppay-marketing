@@ -6,10 +6,10 @@ import { AlertTriangle, Clock, TrendingDown, Unlink } from 'lucide-react';
 gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
-  { icon: TrendingDown, label: 'Cross-Border Cost', value: '8–12%', benchmark: 'Global: 2–3%', delay: 0 },
-  { icon: Clock, label: 'Settlement Time', value: '3–5 Days', benchmark: 'Global: Same Day', delay: 0.15 },
-  { icon: Unlink, label: 'Interoperability', value: 'Fragmented', benchmark: 'Global: Unified', delay: 0.3 },
-  { icon: AlertTriangle, label: 'SME Tooling', value: 'Minimal', benchmark: 'Global: Full-Stack', delay: 0.45 },
+  { icon: TrendingDown, label: 'Product Access', value: 'Fragmented', benchmark: 'Customers search across many channels', delay: 0 },
+  { icon: Clock, label: 'Fulfillment Speed', value: 'Manual', benchmark: 'Retailers need faster digital delivery', delay: 0.15 },
+  { icon: Unlink, label: 'Catalog Control', value: 'Scattered', benchmark: 'Partners need one operating view', delay: 0.3 },
+  { icon: AlertTriangle, label: 'Merchant Tooling', value: 'Limited', benchmark: 'Local sellers need simple digital tools', delay: 0.45 },
 ];
 
 export function ProblemSection() {
@@ -77,8 +77,9 @@ export function ProblemSection() {
             <span className="text-white/30">Not by Accident.</span>
           </h2>
           <p className="mt-8 text-white/50 text-base md:text-lg max-w-xl leading-relaxed">
-            This is not a technology gap. It is a product design gap. Legacy infrastructure 
-            was not built for Africa's mobile-first, cross-border reality.
+            This is not only a technology gap. It is a product access and distribution
+            gap. Customers want digital products, while local sellers need simpler tools
+            to offer them reliably.
           </p>
         </div>
 
@@ -100,11 +101,11 @@ export function ProblemSection() {
         <div className="mt-16 lg:mt-24 p-6 lg:p-10 border border-white/5 bg-white/[0.02]">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6 lg:gap-10">
             {[
-              { label: 'Transfer Cost', africa: '8–12%', global: '2–3%' },
-              { label: 'Settlement', africa: '3–5 Days', global: 'Same Day' },
-              { label: 'Interoperability', africa: 'Fragmented', global: 'Unified' },
-              { label: 'Merchant Tools', africa: 'Minimal', global: 'Full-Stack' },
-              { label: 'Institutional API', africa: 'None', global: 'Standard' },
+              { label: 'Product Access', africa: 'Scattered', global: 'Unified' },
+              { label: 'Fulfillment', africa: 'Manual', global: 'Instant' },
+              { label: 'Catalog', africa: 'Fragmented', global: 'Controlled' },
+              { label: 'Merchant Tools', africa: 'Limited', global: 'Self-Serve' },
+              { label: 'Partner Reporting', africa: 'Basic', global: 'Centralized' },
             ].map((row) => (
               <div key={row.label} className="text-center">
                 <p className="text-white/30 text-[10px] tracking-wider uppercase mb-4">{row.label}</p>

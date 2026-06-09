@@ -1,45 +1,45 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { CreditCard, ArrowRightLeft, Cloud, Layers, Route } from 'lucide-react';
+import { CreditCard, Store, Cloud, Layers, Route } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const streams = [
   {
     icon: CreditCard,
-    title: 'Transaction Fees',
-    description: '% of every payment processed',
-    margin: '60–70%',
-    scale: '$1T flow = $5–10B revenue',
+    title: 'Marketplace Sales',
+    description: 'Consumer purchases of gift cards, vouchers, top-ups, and prepaid products',
+    margin: 'Product margin',
+    scale: 'Starts with everyday digital demand',
   },
   {
-    icon: ArrowRightLeft,
-    title: 'FX Spread',
-    description: 'Margin on every cross-border conversion',
-    margin: '70–80%',
-    scale: '$100B+ sent across Africa annually',
+    icon: Store,
+    title: 'Merchant Distribution',
+    description: 'Retailers and resellers access digital products through the merchant portal',
+    margin: 'B2B margin',
+    scale: 'Expands through local retail channels',
   },
   {
     icon: Cloud,
-    title: 'SaaS Subscriptions',
-    description: 'Monthly fee for SME & enterprise tools',
-    margin: '75–85%',
-    scale: '80M African SMEs — nearly all unserved',
+    title: 'Dashboard Access',
+    description: 'Approved partners and larger accounts use catalog, reporting, and distribution tools',
+    margin: 'Platform fees',
+    scale: 'Supports controlled partner operations',
   },
   {
     icon: Layers,
-    title: 'White-Label Licensing',
-    description: 'Banks pay to run on Swarp infrastructure',
-    margin: '80–90%',
-    scale: 'Recurring institutional contracts',
+    title: 'Partner Integrations',
+    description: 'Commercial integrations with approved distributors and B2B partners',
+    margin: 'Partner revenue',
+    scale: 'Grows with product and channel depth',
   },
   {
     icon: Route,
-    title: 'Settlement Rails',
-    description: 'Per-transaction institutional routing fee',
-    margin: '65–75%',
-    scale: 'Compounds with every bank onboarded',
+    title: 'Diaspora-Linked Roadmap',
+    description: 'Long-term opportunity to connect diaspora-supported value with digital spending',
+    margin: 'Future products',
+    scale: 'Roadmap item, not the starting product',
   },
 ];
 
@@ -99,18 +99,18 @@ export function RevenueSection() {
       <div className="max-w-7xl mx-auto">
         <div ref={titleRef} className="mb-20 lg:mb-28">
           <p className="text-gold text-xs font-semibold tracking-[0.3em] uppercase mb-4">
-            Business Model
+            Commercial Model
           </p>
           <h2 className="text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-white leading-[0.95] tracking-tight max-w-5xl">
-            Every Transaction.
+            Digital products.
             <br />
-            <span className="text-gradient-gold">Every Transfer.</span>
+            <span className="text-gradient-gold">Merchant distribution.</span>
             <br />
-            <span className="text-white/30">Every Day.</span>
+            <span className="text-white/30">Partner tools.</span>
           </h2>
           <p className="mt-8 text-white/50 text-base md:text-lg max-w-xl leading-relaxed">
-            We sit in the middle of every transaction in Africa and take a small cut. 
-            At scale, that is extraordinary.
+            SWARP starts with digital products and merchant distribution, then expands
+            toward broader value-added services as the platform and partner network mature.
           </p>
         </div>
 
@@ -149,7 +149,7 @@ export function RevenueSection() {
 
         <div className="mt-12 text-center">
           <p className="text-white/30 text-sm">
-            Revenue streams are additive and concurrent. Each new user activates multiple streams simultaneously.
+            The roadmap is staged around live digital commerce needs first, with future services added only as operational and legal requirements are met.
           </p>
         </div>
       </div>

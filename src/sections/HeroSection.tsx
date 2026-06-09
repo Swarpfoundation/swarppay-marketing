@@ -133,7 +133,7 @@ export function HeroSection() {
           </h1>
           <p className="mt-8 text-white/60 text-base md:text-lg max-w-xl leading-relaxed">
             Built in Morocco. Designed for continental scale. A unified platform enabling consumer payments,
-            merchant acceptance, and institutional settlement across African markets.
+            merchant acceptance, and partner distribution workflows across African markets.
           </p>
           <div className="mt-8 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
             {heroActions.map((action) => (
