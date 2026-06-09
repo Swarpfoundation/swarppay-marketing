@@ -4,11 +4,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SLogo = () => (
-  <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="1.5">
-    <path d="M70 20 C40 20, 20 35, 20 50 C20 65, 40 80, 70 80 C55 80, 45 65, 45 50 C45 35, 55 20, 70 20Z" />
-    <circle cx="75" cy="22" r="3" fill="currentColor" stroke="none" />
-  </svg>
+const LogoMark = () => (
+  <img
+    src="/swarp-logo.png"
+    alt=""
+    className="h-full w-full object-contain"
+    draggable={false}
+  />
 );
 
 export function HeroSection() {
@@ -105,15 +107,15 @@ export function HeroSection() {
             Morocco &middot; Africa &middot; Scale
           </p>
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white leading-[0.9] tracking-tight">
-            Africa.
+            Africa&apos;s
             <br />
-            Payments.
+            Payments
             <br />
-            <span className="text-gradient-gold">Reimagined.</span>
+            <span className="text-gradient-gold">Layer</span>
           </h1>
           <p className="mt-8 text-white/60 text-base md:text-lg max-w-xl leading-relaxed">
-            One unified platform. Consumer wallets to enterprise APIs. Built from Morocco — 
-            Africa's anchor economy — for the continent's next growth cycle.
+            Built in Morocco. Designed for continental scale. A unified platform enabling consumer payments,
+            merchant acceptance, and institutional settlement across African markets.
           </p>
         </div>
       </div>
@@ -127,8 +129,8 @@ export function HeroSection() {
         <div className="flex animate-marquee whitespace-nowrap">
           {[...Array(12)].map((_, i) => (
             <div key={i} className="flex items-center gap-12 px-6">
-              <div className="w-16 h-16 md:w-20 md:h-20 text-gold/40">
-                <SLogo />
+              <div className="w-16 h-16 md:w-20 md:h-20 opacity-50">
+                <LogoMark />
               </div>
               <span className="text-gold/40 text-lg md:text-xl font-light tracking-[0.2em] uppercase whitespace-nowrap">
                 SwarpPay

@@ -5,8 +5,16 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-8 mb-16">
           {/* Brand */}
           <div className="md:col-span-2">
-            <a href="#" className="text-2xl font-semibold tracking-tight text-white mb-4 inline-block">
-              Swarp<span className="text-gold">Pay</span>
+            <a href="#" className="mb-4 inline-flex items-center gap-3 text-2xl font-semibold tracking-tight text-white">
+              <img
+                src="/swarp-logo.png"
+                alt="SwarpPay logo"
+                className="h-10 w-10 object-contain"
+                draggable={false}
+              />
+              <span>
+                Swarp<span className="text-gold">Pay</span>
+              </span>
             </a>
             <p className="text-white/40 text-sm leading-relaxed max-w-sm mt-4">
               One unified platform for Africa's payments infrastructure. 

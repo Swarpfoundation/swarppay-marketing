@@ -39,9 +39,9 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         gold: {
-          DEFAULT: "#d4af37",
-          light: "#f4e4a6",
-          dark: "#b8960c",
+          DEFAULT: "#35d8d0",
+          light: "#69f2ea",
+          dark: "#18afa8",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -66,8 +66,8 @@ module.exports = {
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-        glow: "0 0 40px rgba(212, 175, 55, 0.15)",
-        "glow-lg": "0 0 80px rgba(212, 175, 55, 0.2)",
+        glow: "0 0 40px rgba(53, 216, 208, 0.15)",
+        "glow-lg": "0 0 80px rgba(53, 216, 208, 0.2)",
       },
       keyframes: {
         "accordion-down": {

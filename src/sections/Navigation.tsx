@@ -49,8 +49,16 @@ export function Navigation() {
       style={{ mixBlendMode: scrolled ? 'normal' : 'difference' }}
     >
       <div className="w-full px-6 lg:px-12 py-5 flex items-center justify-between">
-        <a href="#" className="text-xl font-semibold tracking-tight text-white">
-          Swarp<span className="text-gold">Pay</span>
+        <a href="#" className="flex items-center gap-3 text-xl font-semibold tracking-tight text-white">
+          <img
+            src="/swarp-logo.png"
+            alt="SwarpPay logo"
+            className="h-9 w-9 object-contain"
+            draggable={false}
+          />
+          <span>
+            Swarp<span className="text-gold">Pay</span>
+          </span>
         </a>
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
