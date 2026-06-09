@@ -6,12 +6,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const team = [
   { initials: 'SM', name: 'Salah Eddine Maniar', role: 'Founder & CEO', bio: 'Founder leading SWARP across product, partnerships, and Morocco market access.' },
-  { initials: 'SM', name: 'Steve Mancini', role: 'Cofounder', bio: 'Cofounder supporting business development, partnerships, and expansion strategy.' },
-  { initials: 'DD', name: 'David Dobrovitsky', role: 'General Manager', bio: 'General Manager focused on operations, growth, and commercial execution.' },
-  { initials: 'DM', name: 'Devon Martens', role: 'CTO', bio: 'CTO responsible for platform architecture, product delivery, and technical execution.' },
-  { initials: 'GB', name: 'Gorkhmaz Beydullayev', role: 'COO', bio: 'COO supporting operations, systems, and partner implementation.' },
-  { initials: 'EL', name: 'Eleonora Landi', role: 'Head of Compliance', bio: 'Head of Compliance supporting governance, process, and partner readiness.' },
-  { initials: 'AF', name: 'Angelo Formisano', role: 'Head of Marketing', bio: 'Head of Marketing focused on brand, campaigns, and market communication.' },
+  { initials: 'SM', name: 'Steve Mancini', role: 'Cofounder', bio: 'Cofounder supporting business development, partnerships, and expansion strategy.', image: '/team/steve.png' },
+  { initials: 'DD', name: 'David Dobrovitsky', role: 'General Manager', bio: 'General Manager focused on operations, growth, and commercial execution.', image: '/team/david.jpg' },
+  { initials: 'DM', name: 'Devon Martens', role: 'CTO', bio: 'CTO responsible for platform architecture, product delivery, and technical execution.', image: '/team/devon.jpg' },
+  { initials: 'GB', name: 'Gorkhmaz Beydullayev', role: 'COO', bio: 'COO supporting operations, systems, and partner implementation.', image: '/team/gorkhmaz.png' },
+  { initials: 'EL', name: 'Eleonora Landi', role: 'Head of Compliance', bio: 'Head of Compliance supporting governance, process, and partner readiness.', image: '/team/eleonora.jpg' },
+  { initials: 'AF', name: 'Angelo Formisano', role: 'Head of Marketing', bio: 'Head of Marketing focused on brand, campaigns, and market communication.', image: '/team/angelo.png' },
 ];
 
 export function LeadershipSection() {
@@ -84,18 +84,32 @@ export function LeadershipSection() {
           {team.map((member) => (
             <article
               key={member.name}
-              className="team-card group border border-white/5 bg-white/[0.02] p-6 transition-all duration-300 hover:border-gold/30 hover:bg-white/[0.04]"
+              className="team-card group overflow-hidden border border-white/5 bg-white/[0.02] transition-all duration-300 hover:border-gold/30 hover:bg-white/[0.04]"
             >
-              <div className="mb-6 flex h-14 w-14 items-center justify-center border border-gold/20 bg-gold/5 text-sm font-bold text-gold">
-                {member.initials}
+              <div className="relative aspect-[4/3] w-full overflow-hidden border-b border-white/5 bg-gold/[0.04]">
+                {member.image ? (
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="h-full w-full object-cover object-center grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center">
+                    <span className="text-5xl font-bold text-gold/60">{member.initials}</span>
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
               </div>
-              <h3 className="text-lg font-semibold text-white group-hover:text-gold transition-colors">
-                {member.name}
-              </h3>
-              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-gold/60">
-                {member.role}
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-white/45">{member.bio}</p>
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-white group-hover:text-gold transition-colors">
+                  {member.name}
+                </h3>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-gold/60">
+                  {member.role}
+                </p>
+                <p className="mt-4 text-sm leading-relaxed text-white/45">{member.bio}</p>
+              </div>
             </article>
           ))}
         </div>
