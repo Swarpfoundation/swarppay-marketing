@@ -52,8 +52,8 @@ function App() {
       <Navigation />
       <main ref={mainRef} className="bg-black min-h-screen">
         <HeroSection />
-        <ProblemSection />
         <SolutionSection />
+        <ProblemSection />
         <MarketSection />
         <RevenueSection />
         <ExpansionSection />

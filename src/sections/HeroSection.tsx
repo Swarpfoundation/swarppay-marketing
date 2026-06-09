@@ -4,6 +4,24 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const heroActions = [
+  {
+    title: 'Buy Gift Cards',
+    label: 'For customers',
+    href: 'https://giftcard.swarppay.com/',
+  },
+  {
+    title: 'Start Selling',
+    label: 'For merchants & resellers',
+    href: 'https://merchant.swarppay.com/',
+  },
+  {
+    title: 'Partner Dashboard',
+    label: 'For approved partners',
+    href: 'https://master.swarppay.com/',
+  },
+];
+
 const LogoMark = () => (
   <img
     src="/swarp-logo.png"
@@ -117,6 +135,27 @@ export function HeroSection() {
             Built in Morocco. Designed for continental scale. A unified platform enabling consumer payments,
             merchant acceptance, and institutional settlement across African markets.
           </p>
+          <div className="mt-8 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
+            {heroActions.map((action) => (
+              <a
+                key={action.href}
+                href={action.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group border border-gold/30 bg-gold/[0.06] px-5 py-4 text-left transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:bg-gold hover:text-black"
+              >
+                <span className="block text-[10px] font-semibold uppercase tracking-[0.22em] text-gold/70 transition-colors group-hover:text-black/60">
+                  {action.label}
+                </span>
+                <span className="mt-1 flex items-center justify-between gap-3 text-sm font-semibold text-white transition-colors group-hover:text-black">
+                  {action.title}
+                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                    -&gt;
+                  </span>
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 
