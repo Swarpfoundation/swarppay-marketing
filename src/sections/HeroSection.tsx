@@ -11,12 +11,12 @@ const heroActions = [
     href: 'https://giftcard.swarppay.com/',
   },
   {
-    title: 'Start Selling',
+    title: 'Sell as a Merchant',
     label: 'For merchants & resellers',
     href: 'https://merchant.swarppay.com/',
   },
   {
-    title: 'Partner Dashboard',
+    title: 'Open Dashboard',
     label: 'For approved partners',
     href: 'https://master.swarppay.com/',
   },
@@ -125,15 +125,16 @@ export function HeroSection() {
             Morocco &middot; Africa &middot; Scale
           </p>
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white leading-[0.9] tracking-tight">
-            Africa&apos;s
+            Buy, sell,
             <br />
-            Payments
+            and distribute
             <br />
-            <span className="text-gradient-gold">Layer</span>
+            <span className="text-gradient-gold">digital products in Morocco.</span>
           </h1>
           <p className="mt-8 text-white/60 text-base md:text-lg max-w-xl leading-relaxed">
-            Built in Morocco. Designed for continental scale. A unified platform enabling consumer payments,
-            merchant acceptance, and partner distribution workflows across African markets.
+            SwarpPay connects customers, merchants, and resellers through one platform for
+            gift cards, telecom top-ups, gaming vouchers, streaming cards, and prepaid
+            digital products.
           </p>
           <div className="mt-8 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
             {heroActions.map((action) => (
@@ -156,6 +157,9 @@ export function HeroSection() {
               </a>
             ))}
           </div>
+          <p className="mt-4 text-xs tracking-[0.16em] uppercase text-white/35">
+            Built for consumers, retailers, resellers, and distribution partners.
+          </p>
         </div>
       </div>
 
