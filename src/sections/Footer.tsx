@@ -1,3 +1,6 @@
+import type { MouseEvent } from 'react';
+import { COOKIE_PREFERENCES_EVENT } from '@/components/CookieBanner';
+
 const socialLinks = [
   { label: 'X', href: 'https://x.com/Swarp_Pay' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/company/swarp-pay/' },
@@ -14,6 +17,11 @@ const legalLinks = [
 ];
 
 export function Footer() {
+  const openCookiePreferences = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    window.dispatchEvent(new Event(COOKIE_PREFERENCES_EVENT));
+  };
+
   return (
     <footer className="relative w-full py-14 px-6 lg:px-16 bg-black border-t border-white/5">
       <div className="max-w-7xl mx-auto">
@@ -55,6 +63,7 @@ export function Footer() {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={link.label === 'Cookies' ? openCookiePreferences : undefined}
                 className="text-xs text-white/35 transition-colors hover:text-gold"
               >
                 {link.label}
