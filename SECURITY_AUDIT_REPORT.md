@@ -15,7 +15,7 @@ Deployment security status: Ready for deployment from a repository security stan
 ## 2. Scope reviewed
 
 Framework and package manager:
-- Vite 7 React 19 TypeScript static frontend.
+- Vite 8 React 19 TypeScript static frontend.
 - npm with `package-lock.json`.
 
 Files and directories reviewed:
@@ -261,6 +261,7 @@ Initial audit:
 
 Remediation:
 - Ran `npm audit fix`.
+- On 15 June 2026, a fresh audit identified a new high-severity Vite/esbuild advisory that required a major Vite upgrade. Ran `npm audit fix --force`, upgraded to Vite 8, patched generated Tailwind spacing syntax that Vite 8's CSS pipeline rejected, and re-ran lint/build/audit successfully.
 - Removed `kimi-plugin-inspect-react`.
 - Re-ran `npm ci`, `npm audit --audit-level=high`, `npm run lint`, and `npm run build`.
 
@@ -296,6 +297,7 @@ Regulatory/public claims:
 - `grep -RInE "(api[_-]?key|secret|token|password|passwd|private[_-]?key|client[_-]?secret|bearer|authorization|webhook|database_url|mongodb|postgres|mysql|redis|sk_live|sk_test|pk_live|ghp_|vercel|supabase|firebase|stripe|valuation|seed|fundraising|use of funds|KPI|deck|internal|confidential|admin)" --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=dist .`: Passed; no secrets found.
 - `npm audit --audit-level=high`: Initially failed once due DNS, then ran successfully and found vulnerabilities.
 - `npm audit fix`: Passed; fixed dependency advisories.
+- `npm audit fix --force`: Passed on 15 June 2026; upgraded Vite to resolve the later high-severity Vite/esbuild advisory.
 - `env NPM_CONFIG_CACHE=/tmp/npm-cache npm ci`: Passed; found 0 vulnerabilities.
 - `npm run lint`: Passed after fixes.
 - `npm run build`: Passed after fixes.

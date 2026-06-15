@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import type { FormEvent } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -30,6 +31,83 @@ const LogoMark = () => (
     draggable={false}
   />
 );
+
+function NewsletterSignup() {
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+  const [status, setStatus] = useState('');
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const normalizedEmail = email.trim().toLowerCase();
+    const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizedEmail);
+
+    if (!emailIsValid || normalizedEmail.length > 254) {
+      setStatus('');
+      setError('Enter a valid email address.');
+      return;
+    }
+
+    const subject = encodeURIComponent('SwarpPay newsletter and early access');
+    const body = encodeURIComponent(
+      `Hi SwarpPay team,\n\nPlease add me to the newsletter and early access list.\n\nEmail: ${normalizedEmail}\n\nThanks.`
+    );
+
+    setError('');
+    setStatus('Opening your email client to confirm the request.');
+    window.location.href = `mailto:info@swarppay.com?subject=${subject}&body=${body}`;
+  };
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="mt-6 max-w-2xl border border-white/10 bg-black/45 p-3 backdrop-blur-md sm:flex sm:items-center sm:gap-3"
+      noValidate
+    >
+      <div className="min-w-0 flex-1">
+        <label htmlFor="newsletter-email" className="sr-only">
+          Email address
+        </label>
+        <input
+          id="newsletter-email"
+          type="email"
+          value={email}
+          onChange={(event) => {
+            setEmail(event.target.value);
+            setError('');
+            setStatus('');
+          }}
+          maxLength={254}
+          autoComplete="email"
+          placeholder="Email for newsletter and early access"
+          className="h-12 w-full border border-white/10 bg-white/[0.04] px-4 text-sm text-white outline-none transition-colors placeholder:text-white/35 focus:border-gold"
+          aria-describedby="newsletter-help newsletter-error newsletter-status"
+          aria-invalid={Boolean(error)}
+        />
+        <p id="newsletter-help" className="mt-2 text-[10px] leading-relaxed text-white/35 sm:hidden">
+          Product updates, launch news, and early access.
+        </p>
+        {error && (
+          <p id="newsletter-error" className="mt-2 text-xs text-red-300" role="alert">
+            {error}
+          </p>
+        )}
+        {status && (
+          <p id="newsletter-status" className="mt-2 text-xs text-gold" role="status">
+            {status}
+          </p>
+        )}
+      </div>
+      <button
+        type="submit"
+        className="mt-3 h-12 w-full border border-gold bg-gold px-5 text-xs font-semibold uppercase tracking-[0.16em] text-black transition-colors hover:bg-[#69f2ea] sm:mt-0 sm:w-auto"
+      >
+        Subscribe
+      </button>
+    </form>
+  );
+}
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -99,7 +177,7 @@ export function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-[760px] h-screen overflow-hidden bg-black"
+      className="relative w-full min-h-[860px] h-screen overflow-hidden bg-black"
     >
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
@@ -157,6 +235,7 @@ export function HeroSection() {
           <p className="mt-4 max-w-3xl text-[10px] tracking-[0.14em] uppercase text-white/35 sm:text-xs">
             Built for consumers, retailers, resellers, and distribution partners.
           </p>
+          <NewsletterSignup />
         </div>
       </div>
 
