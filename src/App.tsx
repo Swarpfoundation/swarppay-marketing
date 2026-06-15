@@ -22,7 +22,7 @@ function App() {
   useLenis();
   const location = useLocation();
   const mainRef = useRef<HTMLElement>(null);
-  const isSendGiftPage = location.pathname === '/send-gift';
+  const isSendGiftPage = location.pathname === '/send-gift' || location.pathname === '/send-gift.html';
 
   useEffect(() => {
     if (!mainRef.current || isSendGiftPage) return;

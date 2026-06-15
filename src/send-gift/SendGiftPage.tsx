@@ -114,11 +114,11 @@ function LanguageSwitcher({
   );
 }
 
-function SectionHeader({ title }: { title: string }) {
+function SectionHeader({ title, label }: { title: string; label: string }) {
   return (
     <div className="mb-8">
       <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.28em] text-gold/70">
-        SwarpPay
+        {label}
       </p>
       <h2 className="max-w-3xl text-3xl font-bold leading-tight text-white md:text-5xl">
         {title}
@@ -210,7 +210,7 @@ export function SendGiftPage() {
         <div className="relative mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
             <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.28em] text-gold/75">
-              QR Campaign
+              {content.pageLabel}
             </p>
             <h1 className="max-w-4xl text-4xl font-bold leading-[1.02] text-white sm:text-5xl md:text-6xl">
               {content.hero.headline}
@@ -255,7 +255,7 @@ export function SendGiftPage() {
 
       <section id="how-it-works" className="px-4 py-14 sm:px-6 md:py-20 lg:px-10">
         <div className="mx-auto max-w-6xl">
-          <SectionHeader title={content.howItWorks.title} />
+          <SectionHeader title={content.howItWorks.title} label={content.sectionLabel} />
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {content.howItWorks.steps.map((step, index) => (
               <article key={step.title} className="border border-white/10 bg-white/[0.025] p-5">
@@ -272,7 +272,7 @@ export function SendGiftPage() {
 
       <section className="bg-[#071312] px-4 py-14 sm:px-6 md:py-20 lg:px-10">
         <div className="mx-auto max-w-6xl">
-          <SectionHeader title={content.send.title} />
+          <SectionHeader title={content.send.title} label={content.sectionLabel} />
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {content.send.cards.map((card, index) => {
               const Icon = categoryIcons[index] ?? PackageCheck;
@@ -291,7 +291,7 @@ export function SendGiftPage() {
 
       <section className="px-4 py-14 sm:px-6 md:py-20 lg:px-10">
         <div className="mx-auto max-w-6xl">
-          <SectionHeader title={content.audience.title} />
+          <SectionHeader title={content.audience.title} label={content.sectionLabel} />
           <div className="grid gap-4 md:grid-cols-3">
             {content.audience.cards.map((card, index) => {
               const Icon = audienceIcons[index] ?? HeartHandshake;
@@ -309,7 +309,7 @@ export function SendGiftPage() {
 
       <section className="bg-[#071312] px-4 py-14 sm:px-6 md:py-20 lg:px-10">
         <div className="mx-auto max-w-6xl">
-          <SectionHeader title={content.why.title} />
+          <SectionHeader title={content.why.title} label={content.sectionLabel} />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {content.why.benefits.map((benefit, index) => {
               const Icon = whyIcons[index] ?? ShieldCheck;
@@ -352,7 +352,7 @@ export function SendGiftPage() {
 
       <section className="bg-[#071312] px-4 py-14 sm:px-6 md:py-20 lg:px-10">
         <div className="mx-auto max-w-4xl">
-          <SectionHeader title={content.faq.title} />
+          <SectionHeader title={content.faq.title} label={content.sectionLabel} />
           <Accordion type="single" collapsible className="border border-white/10 bg-black/30 px-4 md:px-6">
             {content.faq.items.map((item, index) => (
               <AccordionItem key={item.title} value={`item-${index}`} className="border-white/10">

@@ -22,6 +22,8 @@ type TitledText = {
 type Step = TitledText;
 
 type SendGiftContent = {
+  pageLabel: string;
+  sectionLabel: string;
   hero: {
     headline: string;
     subheadline: string;
@@ -71,6 +73,8 @@ type SendGiftContent = {
 
 export const sendGiftContent: Record<SendGiftLanguage, SendGiftContent> = {
   darija: {
+    pageLabel: 'كادو رقمي',
+    sectionLabel: 'SwarpPay',
     hero: {
       headline: 'صيفط كادو رقمي لعائلتك فالمغرب',
       subheadline:
@@ -191,13 +195,15 @@ export const sendGiftContent: Record<SendGiftLanguage, SendGiftContent> = {
       secondaryCta: 'أنا تاجر',
     },
     footer: {
-      contact: 'Contact: info@swarppay.com',
-      terms: 'Terms',
-      privacy: 'Privacy',
-      cookies: 'Cookies',
+      contact: 'تواصل معنا: info@swarppay.com',
+      terms: 'الشروط',
+      privacy: 'الخصوصية',
+      cookies: 'الكوكيز',
     },
   },
   fr: {
+    pageLabel: 'Cadeau digital',
+    sectionLabel: 'SwarpPay',
     hero: {
       headline: 'Envoyez un cadeau digital à votre famille au Maroc',
       subheadline:
@@ -320,12 +326,14 @@ export const sendGiftContent: Record<SendGiftLanguage, SendGiftContent> = {
     },
     footer: {
       contact: 'Contact: info@swarppay.com',
-      terms: 'Terms',
-      privacy: 'Privacy',
+      terms: 'Conditions',
+      privacy: 'Confidentialité',
       cookies: 'Cookies',
     },
   },
   it: {
+    pageLabel: 'Regalo digitale',
+    sectionLabel: 'SwarpPay',
     hero: {
       headline: 'Invia un regalo digitale alla tua famiglia in Marocco',
       subheadline:
@@ -447,8 +455,8 @@ export const sendGiftContent: Record<SendGiftLanguage, SendGiftContent> = {
       secondaryCta: 'Sono un commerciante',
     },
     footer: {
-      contact: 'Contact: info@swarppay.com',
-      terms: 'Terms',
+      contact: 'Contatto: info@swarppay.com',
+      terms: 'Termini',
       privacy: 'Privacy',
       cookies: 'Cookies',
     },
