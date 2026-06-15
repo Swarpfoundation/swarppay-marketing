@@ -8,6 +8,12 @@ export default defineConfig({
   plugins: [react()],
   build: {
     sourcemap: false,
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+        sendGift: path.resolve(__dirname, 'send-gift.html'),
+      },
+    },
   },
   server: {
     port: 3000,

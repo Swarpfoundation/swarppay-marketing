@@ -1,4 +1,10 @@
 {
+  "rewrites": [
+    {
+      "source": "/send-gift",
+      "destination": "/send-gift.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

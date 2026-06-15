@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLenis } from '@/hooks/useLenis';
@@ -13,15 +14,18 @@ import { LeadershipSection } from '@/sections/LeadershipSection';
 import { CTASection } from '@/sections/CTASection';
 import { Footer } from '@/sections/Footer';
 import { CookieBanner } from '@/components/CookieBanner';
+import { SendGiftPage } from '@/send-gift/SendGiftPage';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   useLenis();
+  const location = useLocation();
   const mainRef = useRef<HTMLElement>(null);
+  const isSendGiftPage = location.pathname === '/send-gift';
 
   useEffect(() => {
-    if (!mainRef.current) return;
+    if (!mainRef.current || isSendGiftPage) return;
 
     // Global reveal animation for sections
     const sections = mainRef.current.querySelectorAll('.reveal-on-scroll');
@@ -46,7 +50,16 @@ function App() {
     return () => {
       ScrollTrigger.getAll().forEach((st) => st.kill());
     };
-  }, []);
+  }, [isSendGiftPage]);
+
+  if (isSendGiftPage) {
+    return (
+      <>
+        <SendGiftPage />
+        <CookieBanner />
+      </>
+    );
+  }
 
   return (
     <>
