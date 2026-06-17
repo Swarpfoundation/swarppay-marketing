@@ -76,59 +76,59 @@ export const sendGiftContent: Record<SendGiftLanguage, SendGiftContent> = {
     pageLabel: 'كادو رقمي',
     sectionLabel: 'SwarpPay',
     hero: {
-      headline: 'صيفط كادو رقمي لعائلتك فالمغرب',
+      headline: 'بقى قريب من الناس اللي كتحب، حتى من بعيد',
       subheadline:
-        'اختار كارت كادو ولا ڤوتشر رقمي، خلّص أونلاين، وصيفط الكود للشخص اللي بغيتي فالمغرب.',
+        'اختار كارت كادو ولا ڤوتشر رقمي، خلّص أونلاين، وصيفط الكود مباشرة للشخص اللي بغيتي.',
       primaryCta: 'شري كارت كادو',
       secondaryCta: 'كيفاش كتخدم؟',
-      trustLine: 'خدمة بسيطة للدياسبورا، العائلات، والتجار فالمغرب.',
+      trustLine: 'حل بسيط باش تعاون حبابك والمحلات اللي كتستعمل كل نهار.',
     },
     howItWorks: {
       title: 'كيفاش كتخدم؟',
       steps: [
         {
           title: 'اختار المنتج',
-          text: 'اختار كارت كادو، ڤوتشر، توب-أپ، ولا منتج رقمي.',
+          text: 'اختار من بين كروت الكادو، الڤوتشرات، التعبئات ولا منتجات رقمية أخرى.',
         },
         {
           title: 'خلّص أونلاين',
-          text: 'كمّل الشراء بطريقة سهلة من خلال SwarpPay.',
+          text: 'كمّل الشراء بطريقة سهلة مع SwarpPay.',
         },
         {
           title: 'صيفط الكود',
-          text: 'شارك الكود الرقمي مع العائلة ولا الشخص اللي بغيتي.',
+          text: 'شارك الكود مع اللي بغيتي.',
         },
         {
           title: 'يستعملو فالمغرب',
-          text: 'المستفيد يقدر يستعمل المنتج حسب الشروط ديالو.',
+          text: 'المستفيد كيستعملو حسب شروط الخدمة.',
         },
       ],
     },
     send: {
       title: 'شنو تقدر تصيفط؟',
       cards: [
-        'توب-أپ وتعبئة رقمية',
-        'كروت الألعاب',
-        'كروت الستريمنغ',
-        'كروت التسوق',
-        'ڤوتشرات وخدمات مسبقة الدفع',
-        'منتجات رقمية أخرى حسب المتوفر',
+        'تعبئات وتوب-أپ رقمية',
+        'كروت للألعاب',
+        'اشتراكات وكروت الستريمنغ',
+        'كروت كادو للمحلات والبراندات',
+        'ڤوتشرات ومنتجات أخرى مسبقة الدفع',
+        'منتجات رقمية أخرى متوفرة فالمنصة',
       ],
     },
     audience: {
       title: 'لمن هاد الخدمة؟',
       cards: [
         {
-          title: 'المغاربة فالخارج',
-          text: 'صيفط كادو رقمي لعائلتك فالمغرب بطريقة بسيطة.',
+          title: 'للناس اللي عايشين فالخارج وعندهم عائلة فالمغرب',
+          text: 'صيفط كادو رقمي لحبابك فالمغرب بطريقة بسيطة وسريعة.',
         },
         {
-          title: 'العائلات فالمغرب',
-          text: 'توصل بكود رقمي وتستعملو فالمنتجات المدعومة.',
+          title: 'للعائلات فالمغرب',
+          text: 'توصل بكود رقمي واستعملو فالمنتجات والخدمات المدعومة.',
         },
         {
-          title: 'التجار والريسلرز',
-          text: 'بيع منتجات رقمية للزبناء من خلال SwarpPay.',
+          title: 'للتجار والريسلرز',
+          text: 'عرض وبيع منتجات رقمية للزبناء ديالك عبر SwarpPay.',
         },
       ],
     },
@@ -136,31 +136,31 @@ export const sendGiftContent: Record<SendGiftLanguage, SendGiftContent> = {
       title: 'علاش SwarpPay؟',
       benefits: [
         {
-          title: 'ساهلة',
-          text: 'شري وصيفط الكود بسرعة.',
+          title: 'ساهلة فالاستعمال',
+          text: 'شري وصيفط الكود فخطوات قليلة.',
         },
         {
           title: 'مفيدة',
-          text: 'عاون عائلتك بمنتجات يقدرو يستعملوها.',
+          text: 'عاون عائلتك وحبابك يتوصلو بمنتجات وخدمات.',
         },
         {
           title: 'رقمية',
-          text: 'الكود كيوصل بطريقة رقمية.',
+          text: 'كلشي كيدوز أونلاين، بطريقة بسيطة وسريعة.',
         },
         {
           title: 'مرنة',
-          text: 'اختار من تصنيفات مختلفة حسب المتوفر.',
+          text: 'تقدر تختار من تصنيفات مختلفة، حسب المتوفر.',
         },
         {
           title: 'مبنية للمغرب',
-          text: 'SwarpPay مركزة على المستهلكين، التجار، والدياسبورا المغربية.',
+          text: 'SwarpPay مصممة باش تربط العائلات، التجار، والمجتمعات بين المغرب وباقي العالم.',
         },
       ],
     },
     merchant: {
       title: 'عندك محل تجاري؟',
-      text: 'إلا كنتي تاجر، صاحب تيليكوم، سايبر، محل إلكترونيات، ولا نقطة خدمات، تقدر تنضم لـ SwarpPay وتبيع منتجات رقمية للزبناء ديالك.',
-      cta: 'دخول Merchant Portal',
+      text: 'إلا كان عندك محل، نقطة تيليكوم، سايبر، محل إلكترونيات ولا نقطة خدمات، تقدر تولي جزء من SwarpPay وتعرض منتجات رقمية للزبناء ديالك.',
+      cta: 'دخل للپورتال',
       secondary: 'تواصل معنا',
     },
     faq: {
@@ -168,28 +168,28 @@ export const sendGiftContent: Record<SendGiftLanguage, SendGiftContent> = {
       items: [
         {
           title: 'شنو هي الكارت كادو الرقمية؟',
-          text: 'هي كود رقمي تقدر تشريه وتصيفطو لشخص آخر باش يستعملو فمنتج ولا خدمة مدعومة.',
+          text: 'هي كود رقمي تقدر تشريه وتصيفطو لشخص آخر باش يستعملو فمنتجات ولا خدمات مدعومة.',
         },
         {
           title: 'واش نقدر نصيفطها لشخص فالمغرب؟',
-          text: 'نعم. تقدر تشري منتج رقمي مدعوم وتصيفط الكود للشخص اللي بغيتي.',
+          text: 'نعم. تقدر تشري منتج رقمي متوفر وتشارك الكود مع اللي بغيتي.',
         },
         {
           title: 'شنو المنتجات المتوفرة؟',
-          text: 'المنتجات كتبدل حسب الكاتالوگ المتوفر فـ SwarpPay. التصنيفات ممكن تشمل التوب-أپ، الألعاب، الستريمنغ، الريتيل، والمنتجات المسبقة الدفع.',
+          text: 'كيعتمد على كاتالوگ SwarpPay. التصنيفات ممكن تشمل التعبئات، الألعاب، الستريمنغ، كروت الريتيل ومنتجات رقمية أخرى.',
         },
         {
           title: 'واش هادي خدمة تحويل فلوس؟',
-          text: 'لا. SwarpPay دابا كتعاونك تشري وتصيفط منتجات رقمية وڤوتشرات. أي خدمات مالية مستقبلية غادي تكون غير إلا كانت متاحة قانونياً ومع شركاء مناسبين.',
+          text: 'لا. SwarpPay كتمكّنك تشري وتصيفط منتجات وڤوتشرات رقمية. أي خدمات مستقبلية غادي تتفعّل غير فالبلايص اللي كيسمح بها القانون ومع شركاء مرخّصين.',
         },
         {
           title: 'واش التجار يقدرو يبيعو منتجات SwarpPay؟',
-          text: 'نعم. التجار والريسلرز يقدرو يقدمو الطلب من خلال Merchant Portal.',
+          text: 'نعم. التجار والريسلرز يقدرو يترشحو من خلال Merchant Portal.',
         },
       ],
     },
     finalCta: {
-      title: 'بدا بكادو رقمي',
+      title: 'صيفط أول كادو رقمي ديالك',
       text: 'شري منتج رقمي وصيفطو لعائلتك فالمغرب.',
       primaryCta: 'شري كارت كادو',
       secondaryCta: 'أنا تاجر',
@@ -205,20 +205,20 @@ export const sendGiftContent: Record<SendGiftLanguage, SendGiftContent> = {
     pageLabel: 'Cadeau digital',
     sectionLabel: 'SwarpPay',
     hero: {
-      headline: 'Envoyez un cadeau digital à votre famille au Maroc',
+      headline: 'Restez proche des personnes que vous aimez, même à distance',
       subheadline:
-        'Choisissez une carte cadeau ou un voucher digital, payez en ligne, puis envoyez le code à la personne de votre choix au Maroc.',
+        'Choisissez une carte cadeau ou un voucher digital, payez en ligne et envoyez le code directement à la personne de votre choix.',
       primaryCta: 'Acheter une carte cadeau',
       secondaryCta: 'Comment ça marche ?',
       trustLine:
-        'Une solution simple pour la diaspora, les familles et les commerçants au Maroc.',
+        'Une solution simple pour soutenir vos proches et les commerces que vous utilisez au quotidien.',
     },
     howItWorks: {
       title: 'Comment ça marche ?',
       steps: [
         {
           title: 'Choisissez le produit',
-          text: 'Sélectionnez une carte cadeau, un voucher, un top-up ou un produit digital.',
+          text: 'Choisissez parmi des cartes cadeaux, vouchers, recharges ou autres produits digitaux.',
         },
         {
           title: 'Payez en ligne',
@@ -226,11 +226,11 @@ export const sendGiftContent: Record<SendGiftLanguage, SendGiftContent> = {
         },
         {
           title: 'Envoyez le code',
-          text: 'Partagez le code digital avec votre famille ou votre destinataire.',
+          text: 'Partagez le code avec la personne de votre choix.',
         },
         {
           title: 'Utilisation au Maroc',
-          text: 'Le bénéficiaire utilise le produit selon ses conditions d’utilisation.',
+          text: 'Le destinataire l’utilise selon les conditions du service.',
         },
       ],
     },
@@ -238,27 +238,27 @@ export const sendGiftContent: Record<SendGiftLanguage, SendGiftContent> = {
       title: 'Que pouvez-vous envoyer ?',
       cards: [
         'Recharges et top-ups digitaux',
-        'Cartes gaming',
-        'Cartes streaming',
-        'Cartes retail',
-        'Vouchers et produits prépayés',
-        'Autres produits digitaux selon disponibilité',
+        'Cartes pour le gaming',
+        'Abonnements et cartes streaming',
+        'Cartes cadeaux pour boutiques et marques',
+        'Vouchers et autres produits prépayés',
+        'Autres produits digitaux disponibles sur la plateforme',
       ],
     },
     audience: {
       title: 'Pour qui ?',
       cards: [
         {
-          title: 'Marocains à l’étranger',
-          text: 'Envoyez un cadeau digital à votre famille au Maroc.',
+          title: 'Pour les personnes vivant à l’étranger et ayant de la famille au Maroc',
+          text: 'Envoyez un cadeau digital à vos proches au Maroc, simplement et rapidement.',
         },
         {
-          title: 'Familles au Maroc',
-          text: 'Recevez un code digital et utilisez-le sur les produits compatibles.',
+          title: 'Pour les familles au Maroc',
+          text: 'Recevez un code digital et utilisez-le sur les produits et services supportés.',
         },
         {
-          title: 'Commerçants et revendeurs',
-          text: 'Vendez des produits digitaux à vos clients avec SwarpPay.',
+          title: 'Pour les commerçants et revendeurs',
+          text: 'Proposez et vendez des produits digitaux à vos clients via SwarpPay.',
         },
       ],
     },
@@ -266,31 +266,31 @@ export const sendGiftContent: Record<SendGiftLanguage, SendGiftContent> = {
       title: 'Pourquoi SwarpPay ?',
       benefits: [
         {
-          title: 'Simple',
-          text: 'Achetez et envoyez un code rapidement.',
+          title: 'Facile à utiliser',
+          text: 'Achetez et envoyez le code en quelques étapes.',
         },
         {
           title: 'Utile',
-          text: 'Aidez votre famille avec des produits qu’elle peut utiliser.',
+          text: 'Aidez votre famille et vos proches à recevoir des produits et services.',
         },
         {
           title: 'Digital',
-          text: 'Le code est livré de manière digitale.',
+          text: 'Tout se passe en ligne, simplement et immédiatement.',
         },
         {
           title: 'Flexible',
-          text: 'Choisissez parmi plusieurs catégories selon disponibilité.',
+          text: 'Vous pouvez choisir parmi plusieurs catégories, selon disponibilité.',
         },
         {
-          title: 'Conçu pour le Maroc',
-          text: 'SwarpPay se concentre sur les consommateurs, commerçants et la diaspora marocaine.',
+          title: 'Pensé pour le Maroc',
+          text: 'SwarpPay est pensé pour connecter les familles, les commerçants et les communautés entre le Maroc et le reste du monde.',
         },
       ],
     },
     merchant: {
       title: 'Vous êtes commerçant ?',
-      text: 'Si vous êtes un commerçant, vendeur télécom, cybercafé, magasin électronique ou point de service, vous pouvez rejoindre SwarpPay et vendre des produits digitaux à vos clients.',
-      cta: 'Ouvrir le Merchant Portal',
+      text: 'Si vous avez une boutique, un point télécom, un cybercafé, un magasin d’électronique ou un point de service, vous pouvez rejoindre SwarpPay et proposer des produits digitaux à vos clients.',
+      cta: 'Accéder au portail',
       secondary: 'Nous contacter',
     },
     faq: {
@@ -298,28 +298,28 @@ export const sendGiftContent: Record<SendGiftLanguage, SendGiftContent> = {
       items: [
         {
           title: 'Qu’est-ce qu’une carte cadeau digitale ?',
-          text: 'C’est un code digital que vous pouvez acheter et envoyer à une autre personne pour utiliser un produit ou service compatible.',
+          text: 'C’est un code digital que vous pouvez acheter et envoyer à une autre personne pour l’utiliser sur des produits ou services supportés.',
         },
         {
           title: 'Puis-je l’envoyer à quelqu’un au Maroc ?',
-          text: 'Oui. Vous pouvez acheter un produit digital compatible et partager le code avec la personne de votre choix.',
+          text: 'Oui. Vous pouvez acheter un produit digital disponible et partager le code avec la personne de votre choix.',
         },
         {
           title: 'Quels produits sont disponibles ?',
-          text: 'La disponibilité dépend du catalogue SwarpPay. Les catégories peuvent inclure top-ups, gaming, streaming, retail et produits prépayés.',
+          text: 'Cela dépend du catalogue SwarpPay. Les catégories peuvent inclure recharges, gaming, streaming, cartes retail et autres produits digitaux.',
         },
         {
           title: 'Est-ce un service de transfert d’argent ?',
-          text: 'Non. SwarpPay permet actuellement d’acheter et d’envoyer des produits digitaux et des vouchers. Les futurs services financiers seront proposés uniquement lorsqu’ils seront légalement disponibles et avec les partenaires appropriés.',
+          text: 'Non. SwarpPay permet d’acheter et d’envoyer des produits et vouchers digitaux. D’éventuels futurs services seront activés uniquement là où la réglementation le permet et avec des partenaires autorisés.',
         },
         {
           title: 'Les commerçants peuvent-ils vendre les produits SwarpPay ?',
-          text: 'Oui. Les commerçants et revendeurs peuvent faire une demande via le Merchant Portal.',
+          text: 'Oui. Les commerçants et revendeurs peuvent candidater via le Merchant Portal.',
         },
       ],
     },
     finalCta: {
-      title: 'Commencez avec un cadeau digital',
+      title: 'Envoyez votre premier cadeau digital',
       text: 'Achetez un produit digital et envoyez-le à votre famille au Maroc.',
       primaryCta: 'Acheter une carte cadeau',
       secondaryCta: 'Je suis commerçant',
@@ -335,20 +335,20 @@ export const sendGiftContent: Record<SendGiftLanguage, SendGiftContent> = {
     pageLabel: 'Regalo digitale',
     sectionLabel: 'SwarpPay',
     hero: {
-      headline: 'Invia un regalo digitale alla tua famiglia in Marocco',
+      headline: 'Resta vicino alle persone che ami, anche da lontano',
       subheadline:
-        'Scegli una gift card o un voucher digitale, paga online e invia il codice alla persona che vuoi in Marocco.',
+        'Scegli una gift card o un voucher digitale, paga online e invia il codice direttamente a chi vuoi.',
       primaryCta: 'Acquista una gift card',
       secondaryCta: 'Come funziona?',
       trustLine:
-        'Una soluzione semplice per diaspora, famiglie e commercianti in Marocco.',
+        'Una soluzione semplice per sostenere i propri cari e le attività commerciali che usi ogni giorno.',
     },
     howItWorks: {
       title: 'Come funziona?',
       steps: [
         {
           title: 'Scegli il prodotto',
-          text: 'Seleziona una gift card, un voucher, una ricarica o un prodotto digitale.',
+          text: 'Scegli tra gift card, voucher, ricariche o altri prodotti digitali.',
         },
         {
           title: 'Paga online',
@@ -356,11 +356,11 @@ export const sendGiftContent: Record<SendGiftLanguage, SendGiftContent> = {
         },
         {
           title: 'Invia il codice',
-          text: 'Condividi il codice digitale con la tua famiglia o con il destinatario.',
+          text: 'Condividi il codice con chi vuoi.',
         },
         {
           title: 'Utilizzo in Marocco',
-          text: 'Il destinatario usa il prodotto secondo le condizioni previste.',
+          text: 'Il destinatario lo utilizza secondo le condizioni del servizio.',
         },
       ],
     },
@@ -368,27 +368,27 @@ export const sendGiftContent: Record<SendGiftLanguage, SendGiftContent> = {
       title: 'Cosa puoi inviare?',
       cards: [
         'Ricariche e top-up digitali',
-        'Carte gaming',
-        'Carte streaming',
-        'Carte retail',
-        'Voucher e prodotti prepagati',
-        'Altri prodotti digitali secondo disponibilità',
+        'Carte per il gaming',
+        'Abbonamenti e carte streaming',
+        'Gift card per negozi e brand',
+        'Voucher e altri prodotti prepagati',
+        'Altri prodotti digitali disponibili sulla piattaforma',
       ],
     },
     audience: {
       title: 'Per chi è pensato?',
       cards: [
         {
-          title: 'Marocchini all’estero',
-          text: 'Invia un regalo digitale alla tua famiglia in Marocco.',
+          title: 'Per chi vive all’estero e ha famiglia in Marocco',
+          text: 'Invia un regalo digitale ai tuoi cari in Marocco, in modo semplice e veloce.',
         },
         {
-          title: 'Famiglie in Marocco',
-          text: 'Ricevi un codice digitale e usalo sui prodotti supportati.',
+          title: 'Per le famiglie in Marocco',
+          text: 'Ricevi un codice digitale e utilizzalo sui prodotti e servizi supportati.',
         },
         {
-          title: 'Commercianti e rivenditori',
-          text: 'Vendi prodotti digitali ai tuoi clienti con SwarpPay.',
+          title: 'Per i commercianti e rivenditori',
+          text: 'Offri e vendi prodotti digitali ai tuoi clienti attraverso SwarpPay.',
         },
       ],
     },
@@ -396,31 +396,31 @@ export const sendGiftContent: Record<SendGiftLanguage, SendGiftContent> = {
       title: 'Perché SwarpPay?',
       benefits: [
         {
-          title: 'Semplice',
-          text: 'Acquista e invia un codice rapidamente.',
+          title: 'Facile da usare',
+          text: 'Acquisti e invii il codice in pochi passaggi.',
         },
         {
           title: 'Utile',
-          text: 'Aiuta la tua famiglia con prodotti che può usare.',
+          text: 'Aiuta la tua famiglia e i tuoi cari a ricevere prodotti e servizi.',
         },
         {
           title: 'Digitale',
-          text: 'Il codice viene consegnato in formato digitale.',
+          text: 'Tutto avviene online, in modo semplice e immediato.',
         },
         {
           title: 'Flessibile',
-          text: 'Scegli tra diverse categorie secondo disponibilità.',
+          text: 'Puoi scegliere tra diverse categorie, in base alla disponibilità.',
         },
         {
           title: 'Pensato per il Marocco',
-          text: 'SwarpPay è focalizzata su consumatori, commercianti e diaspora marocchina.',
+          text: 'SwarpPay è pensato per mettere in contatto famiglie, commercianti e comunità tra Marocco e resto del mondo.',
         },
       ],
     },
     merchant: {
       title: 'Sei un commerciante?',
-      text: 'Se hai un negozio, un punto telecom, un cybercafé, un negozio di elettronica o un punto servizi, puoi entrare in SwarpPay e vendere prodotti digitali ai tuoi clienti.',
-      cta: 'Apri il Merchant Portal',
+      text: 'Se hai un negozio, un punto telecom, un cybercafé, un negozio di elettronica o un punto servizi, puoi entrare a far parte di SwarpPay e offrire prodotti digitali ai tuoi clienti.',
+      cta: 'Accedi al portale',
       secondary: 'Contattaci',
     },
     faq: {
@@ -428,28 +428,28 @@ export const sendGiftContent: Record<SendGiftLanguage, SendGiftContent> = {
       items: [
         {
           title: 'Cos’è una gift card digitale?',
-          text: 'È un codice digitale che puoi acquistare e inviare a un’altra persona per usare un prodotto o servizio supportato.',
+          text: 'È un codice digitale che puoi acquistare e inviare a un’altra persona per utilizzarlo su prodotti o servizi supportati.',
         },
         {
           title: 'Posso inviarla a qualcuno in Marocco?',
-          text: 'Sì. Puoi acquistare un prodotto digitale supportato e condividere il codice con il destinatario.',
+          text: 'Sì. Puoi acquistare un prodotto digitale disponibile e condividere il codice con chi vuoi.',
         },
         {
           title: 'Quali prodotti sono disponibili?',
-          text: 'La disponibilità dipende dal catalogo SwarpPay. Le categorie possono includere top-up, gaming, streaming, retail e prodotti prepagati.',
+          text: 'Dipende dal catalogo SwarpPay. Le categorie possono includere ricariche, gaming, streaming, carte retail e altri prodotti digitali.',
         },
         {
           title: 'È un servizio di trasferimento di denaro?',
-          text: 'No. SwarpPay attualmente aiuta gli utenti ad acquistare e inviare prodotti digitali e voucher. Eventuali servizi finanziari futuri saranno offerti solo dove legalmente disponibili e con partner appropriati.',
+          text: 'No. SwarpPay permette di acquistare e inviare prodotti e voucher digitali. Eventuali servizi futuri saranno attivati solo dove consentito dalla normativa e con partner autorizzati.',
         },
         {
           title: 'I commercianti possono vendere prodotti SwarpPay?',
-          text: 'Sì. Commercianti e rivenditori possono fare richiesta tramite il Merchant Portal.',
+          text: 'Sì. Commercianti e rivenditori possono candidarsi tramite il Merchant Portal.',
         },
       ],
     },
     finalCta: {
-      title: 'Inizia con un regalo digitale',
+      title: 'Invia il tuo primo regalo digitale',
       text: 'Acquista un prodotto digitale e invialo alla tua famiglia in Marocco.',
       primaryCta: 'Acquista una gift card',
       secondaryCta: 'Sono un commerciante',
