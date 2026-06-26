@@ -6,6 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { PanelLeftIcon } from "lucide-react"
 
 import { useIsMobile } from "@/hooks/use-mobile"
+import { setNonSensitiveCookie } from "@/lib/security"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -31,10 +32,6 @@ const SIDEBAR_WIDTH = "16rem"
 const SIDEBAR_WIDTH_MOBILE = "18rem"
 const SIDEBAR_WIDTH_ICON = "3rem"
 const SIDEBAR_KEYBOARD_SHORTCUT = "b"
-
-function getCookieSecurityAttributes() {
-  return window.location.protocol === "https:" ? "; SameSite=Lax; Secure" : "; SameSite=Lax"
-}
 
 type SidebarContextProps = {
   state: "expanded" | "collapsed"
@@ -86,8 +83,8 @@ function SidebarProvider({
         _setOpen(openState)
       }
 
-      // This sets the cookie to keep the sidebar state.
-      document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}${getCookieSecurityAttributes()}`
+      // Non-sensitive UI preference only; never stores identity or session data.
+      setNonSensitiveCookie(SIDEBAR_COOKIE_NAME, String(openState), SIDEBAR_COOKIE_MAX_AGE)
     },
     [setOpenProp, open]
   )

@@ -3,6 +3,7 @@
 import * as React from "react"
 import * as RechartsPrimitive from "recharts"
 
+import { safeCssVariableValue, safeDomId } from "@/lib/security"
 import { cn } from "@/lib/utils"
 
 // Format: { THEME_NAME: CSS_SELECTOR }
@@ -47,7 +48,7 @@ function ChartContainer({
   >["children"]
 }) {
   const uniqueId = React.useId()
-  const chartId = `chart-${id || uniqueId.replace(/:/g, "")}`
+  const chartId = safeDomId(`chart-${id || uniqueId.replace(/:/g, "")}`, "chart-safe")
 
   return (
     <ChartContext.Provider value={{ config }}>
@@ -73,32 +74,38 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
   const colorConfig = Object.entries(config).filter(
     ([, config]) => config.theme || config.color
   )
+  const safeId = safeDomId(id, "chart-safe")
 
   if (!colorConfig.length) {
     return null
   }
 
+  const cssText = Object.entries(THEMES)
+    .map(([theme, prefix]) => {
+      const variables = colorConfig
+        .map(([key, itemConfig]) => {
+          const safeKey = safeDomId(key, "")
+          const color =
+            itemConfig.theme?.[theme as keyof typeof itemConfig.theme] ||
+            itemConfig.color
+          const safeColor = color ? safeCssVariableValue(color) : null
+
+          return safeKey === key && safeColor ? `  --color-${safeKey}: ${safeColor};` : null
+        })
+        .filter(Boolean)
+        .join("\n")
+
+      return variables ? `${prefix} [data-chart="${safeId}"] {\n${variables}\n}` : null
+    })
+    .filter(Boolean)
+    .join("\n")
+
+  if (!cssText) {
+    return null
+  }
+
   return (
-    <style
-      dangerouslySetInnerHTML={{
-        __html: Object.entries(THEMES)
-          .map(
-            ([theme, prefix]) => `
-${prefix} [data-chart=${id}] {
-${colorConfig
-  .map(([key, itemConfig]) => {
-    const color =
-      itemConfig.theme?.[theme as keyof typeof itemConfig.theme] ||
-      itemConfig.color
-    return color ? `  --color-${key}: ${color};` : null
-  })
-  .join("\n")}
-}
-`
-          )
-          .join("\n"),
-      }}
-    />
+    <style>{cssText}</style>
   )
 }
 

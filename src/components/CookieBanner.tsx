@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { expireNonSensitiveCookie, setNonSensitiveCookie } from '@/lib/security';
 
 const STORAGE_KEY = 'swarppay-cookie-consent';
 const LEGACY_STORAGE_KEY = 'swarppay-cookie-choice';
@@ -39,10 +40,28 @@ function createConsent(preferences: OptionalPreferences): CookieConsent {
   };
 }
 
-function expireCookie(name: string, domain?: string) {
-  const domainPart = domain ? `; domain=${domain}` : '';
-  const securePart = window.location.protocol === 'https:' ? '; Secure' : '';
-  document.cookie = `${name}=; path=/; max-age=0; SameSite=Lax${securePart}${domainPart}`;
+function safeGetLocalStorageItem(name: string): string | null {
+  try {
+    return localStorage.getItem(name);
+  } catch {
+    return null;
+  }
+}
+
+function safeSetLocalStorageItem(name: string, value: string) {
+  try {
+    localStorage.setItem(name, value);
+  } catch {
+    // Cookie consent must not break the app in storage-denied environments.
+  }
+}
+
+function safeRemoveLocalStorageItem(name: string) {
+  try {
+    localStorage.removeItem(name);
+  } catch {
+    // Cookie consent must not break the app in storage-denied environments.
+  }
 }
 
 function clearOptionalCookies(consent: CookieConsent) {
@@ -55,21 +74,21 @@ function clearOptionalCookies(consent: CookieConsent) {
 
   if (!consent.analytics) {
     analyticsCookies.forEach((name) => {
-      expireCookie(name);
-      domains.forEach((domain) => expireCookie(name, domain));
+      expireNonSensitiveCookie(name);
+      domains.forEach((domain) => expireNonSensitiveCookie(name, domain));
     });
   }
 
   if (!consent.marketing) {
     marketingCookies.forEach((name) => {
-      expireCookie(name);
-      domains.forEach((domain) => expireCookie(name, domain));
+      expireNonSensitiveCookie(name);
+      domains.forEach((domain) => expireNonSensitiveCookie(name, domain));
     });
   }
 }
 
 function readConsent(): CookieConsent | null {
-  const rawConsent = localStorage.getItem(STORAGE_KEY);
+  const rawConsent = safeGetLocalStorageItem(STORAGE_KEY);
 
   if (rawConsent) {
     try {
@@ -80,11 +99,11 @@ function readConsent(): CookieConsent | null {
         marketing: Boolean(parsed.marketing),
       });
     } catch {
-      localStorage.removeItem(STORAGE_KEY);
+      safeRemoveLocalStorageItem(STORAGE_KEY);
     }
   }
 
-  const legacyChoice = localStorage.getItem(LEGACY_STORAGE_KEY);
+  const legacyChoice = safeGetLocalStorageItem(LEGACY_STORAGE_KEY);
   if (legacyChoice === 'all') {
     return createConsent({ functional: true, analytics: true, marketing: true });
   }
@@ -97,12 +116,11 @@ function readConsent(): CookieConsent | null {
 }
 
 function writeConsent(consent: CookieConsent) {
-  const encodedConsent = encodeURIComponent(JSON.stringify(consent));
+  const serializedConsent = JSON.stringify(consent);
 
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
-  localStorage.removeItem(LEGACY_STORAGE_KEY);
-  const securePart = window.location.protocol === 'https:' ? '; Secure' : '';
-  document.cookie = `${STORAGE_KEY}=${encodedConsent}; path=/; max-age=31536000; SameSite=Lax${securePart}`;
+  safeSetLocalStorageItem(STORAGE_KEY, serializedConsent);
+  safeRemoveLocalStorageItem(LEGACY_STORAGE_KEY);
+  setNonSensitiveCookie(STORAGE_KEY, serializedConsent, 31536000);
   clearOptionalCookies(consent);
   window.swarppayCookieConsent = consent;
   window.dispatchEvent(new CustomEvent(CONSENT_CHANGE_EVENT, { detail: consent }));

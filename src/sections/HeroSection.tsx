@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { safeMailtoHref } from '@/lib/security';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -49,14 +50,14 @@ function NewsletterSignup() {
       return;
     }
 
-    const subject = encodeURIComponent('SwarpPay newsletter and early access');
-    const body = encodeURIComponent(
-      `Hi SwarpPay team,\n\nPlease add me to the newsletter and early access list.\n\nEmail: ${normalizedEmail}\n\nThanks.`
-    );
+    const mailtoHref = safeMailtoHref('info@swarppay.com', {
+      subject: 'SwarpPay newsletter and early access',
+      body: `Hi SwarpPay team,\n\nPlease add me to the newsletter and early access list.\n\nEmail: ${normalizedEmail}\n\nThanks.`,
+    });
 
     setError('');
     setStatus('Opening your email client to confirm the request.');
-    window.location.href = `mailto:info@swarppay.com?subject=${subject}&body=${body}`;
+    window.location.assign(mailtoHref);
   };
 
   return (
