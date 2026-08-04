@@ -11,7 +11,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; script-src 'self' 'sha256-OQ9U81b043GwB6aeBwPSXBJYTtg3ub6N3QuSg+Llh3A=' 'sha256-XaiB9Glaue+co497cLdwNolus7Lj/EowEswtnKI1Mx4='; img-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; media-src 'self'; connect-src 'self' https:; form-action 'self' mailto:; upgrade-insecure-requests"
+          "value": "default-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self' https://gbsoftwares.com https://www.gbsoftwares.com https://gbsoftwares.vercel.app; script-src 'self' 'sha256-OQ9U81b043GwB6aeBwPSXBJYTtg3ub6N3QuSg+Llh3A=' 'sha256-XaiB9Glaue+co497cLdwNolus7Lj/EowEswtnKI1Mx4='; img-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; media-src 'self'; connect-src 'self' https:; form-action 'self' mailto:; upgrade-insecure-requests"
         },
         {
           "key": "Strict-Transport-Security",
@@ -20,10 +20,6 @@
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
         },
         {
           "key": "Referrer-Policy",
