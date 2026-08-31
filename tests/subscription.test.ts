@@ -66,7 +66,15 @@ test('origin and Brevo error helpers fail closed without exposing provider messa
 test('Brevo error classifier exposes only a bounded configuration category', () => {
   assert.equal(
     classifyBrevoError({ code: 'invalid_parameter', message: 'Template is not a DOI template' }),
-    'template'
+    'template_confirmation_link'
+  );
+  assert.equal(
+    classifyBrevoError({ code: 'invalid_parameter', message: 'Template is inactive' }),
+    'template_inactive'
+  );
+  assert.equal(
+    classifyBrevoError({ code: 'invalid_parameter', message: 'Template does not exist' }),
+    'template_not_found'
   );
   assert.equal(
     classifyBrevoError({ code: 'invalid_parameter', details: { field: 'redirectionUrl' } }),

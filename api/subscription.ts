@@ -79,6 +79,22 @@ export function classifyBrevoError(payload: unknown) {
     return 'unknown';
   }
 
+  if (serialized.includes('inactive') || serialized.includes('not active')) {
+    return 'template_inactive';
+  }
+  if (
+    serialized.includes('doiurl') ||
+    serialized.includes('doi url') ||
+    serialized.includes('double opt')
+  ) {
+    return 'template_confirmation_link';
+  }
+  if (
+    serialized.includes('template') &&
+    (serialized.includes('not found') || serialized.includes('does not exist'))
+  ) {
+    return 'template_not_found';
+  }
   if (serialized.includes('template')) return 'template';
   if (serialized.includes('list')) return 'list';
   if (serialized.includes('redirect') || serialized.includes('url')) return 'redirection_url';
