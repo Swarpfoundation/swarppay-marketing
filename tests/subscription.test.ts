@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
+  classifyBrevoError,
   isDuplicateBrevoResponse,
   resolveAllowedOrigins,
   resolveBrevoConfiguration,
@@ -60,4 +61,16 @@ test('origin and Brevo error helpers fail closed without exposing provider messa
   assert.equal(isDuplicateBrevoResponse({ message: 'Contact already exists' }), true);
   assert.equal(safeBrevoErrorCode({ code: 'invalid_parameter' }), 'invalid_parameter');
   assert.equal(safeBrevoErrorCode({ code: '<script>' }), 'unknown');
+});
+
+test('Brevo error classifier exposes only a bounded configuration category', () => {
+  assert.equal(
+    classifyBrevoError({ code: 'invalid_parameter', message: 'Template is not a DOI template' }),
+    'template'
+  );
+  assert.equal(
+    classifyBrevoError({ code: 'invalid_parameter', details: { field: 'redirectionUrl' } }),
+    'redirection_url'
+  );
+  assert.equal(classifyBrevoError({ code: 'invalid_parameter', message: 'Something else' }), 'unknown');
 });
