@@ -15,6 +15,7 @@ import { CTASection } from '@/sections/CTASection';
 import { Footer } from '@/sections/Footer';
 import { CookieBanner } from '@/components/CookieBanner';
 import { SendGiftPage } from '@/send-gift/SendGiftPage';
+import { SubscribePage } from '@/subscribe/SubscribePage';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,9 +24,10 @@ function App() {
   const location = useLocation();
   const mainRef = useRef<HTMLElement>(null);
   const isSendGiftPage = location.pathname === '/send-gift' || location.pathname === '/send-gift.html';
+  const isSubscribePage = location.pathname === '/subscribe' || location.pathname === '/subscribe.html';
 
   useEffect(() => {
-    if (!mainRef.current || isSendGiftPage) return;
+    if (!mainRef.current || isSendGiftPage || isSubscribePage) return;
 
     // Global reveal animation for sections
     const sections = mainRef.current.querySelectorAll('.reveal-on-scroll');
@@ -50,12 +52,21 @@ function App() {
     return () => {
       ScrollTrigger.getAll().forEach((st) => st.kill());
     };
-  }, [isSendGiftPage]);
+  }, [isSendGiftPage, isSubscribePage]);
 
   if (isSendGiftPage) {
     return (
       <>
         <SendGiftPage />
+        <CookieBanner />
+      </>
+    );
+  }
+
+  if (isSubscribePage) {
+    return (
+      <>
+        <SubscribePage />
         <CookieBanner />
       </>
     );

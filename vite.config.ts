@@ -12,6 +12,7 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'index.html'),
         sendGift: path.resolve(__dirname, 'send-gift.html'),
+        subscribe: path.resolve(__dirname, 'subscribe.html'),
       },
     },
   },

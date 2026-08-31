@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'Merchants', href: '#merchants' },
   { label: 'How It Works', href: '#how-it-works' },
   { label: 'Team', href: '#leadership' },
+  { label: 'Updates', href: '/subscribe' },
 ];
 
 export function Navigation() {
@@ -33,6 +34,8 @@ export function Navigation() {
   }, []);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith('#')) return;
+
     e.preventDefault();
     const target = document.querySelector(href);
     if (target) {
