@@ -108,6 +108,10 @@ export default async function handler(request: VercelRequest, response: VercelRe
   const rawOrigin = request.headers.origin;
   const origin = Array.isArray(rawOrigin) ? rawOrigin[0] : rawOrigin;
   const allowedOrigins = resolveAllowedOrigins(process.env.SUBSCRIBE_ALLOWED_ORIGINS);
+  const vercelUrl = process.env.VERCEL_URL?.trim();
+  if (process.env.VERCEL_ENV !== 'production' && vercelUrl && !vercelUrl.includes('/')) {
+    allowedOrigins.add(`https://${vercelUrl}`);
+  }
   if (origin && !allowedOrigins.has(origin)) {
     return sendJson(response, 403, { message: 'Request origin is not allowed.' });
   }
