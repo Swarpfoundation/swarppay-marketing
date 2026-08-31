@@ -90,6 +90,39 @@ async function readProviderResponse(response: Response) {
   }
 }
 
+async function logTemplateDiagnostics(configuration: { apiKey: string; templateId: number }) {
+  try {
+    const templateResponse = await fetch(
+      `https://api.brevo.com/v3/smtp/templates/${configuration.templateId}`,
+      {
+        headers: {
+          accept: 'application/json',
+          'api-key': configuration.apiKey,
+        },
+        signal: AbortSignal.timeout(8_000),
+      }
+    );
+    const payload = await readProviderResponse(templateResponse);
+    const record = payload && typeof payload === 'object' ? (payload as Record<string, unknown>) : {};
+    const html = typeof record.htmlContent === 'string' ? record.htmlContent : '';
+    const normalizedHtml = html.toLowerCase();
+
+    console.error('Brevo DOI template diagnostic.', {
+      status: templateResponse.status,
+      idMatches: record.id === configuration.templateId,
+      active: record.isActive === true,
+      doiTemplate: record.doiTemplate === true,
+      hasDoiUrlTag:
+        /\{\{\s*params\.doiurl\s*\}\}/i.test(html) ||
+        normalizedHtml.includes('%7b%7b%20params.doiurl%20%7d%7d'),
+      hasBrevoDoubleOptInTag:
+        normalizedHtml.includes('doubleoptin') || normalizedHtml.includes('double_optin'),
+    });
+  } catch {
+    console.error('Brevo DOI template diagnostic request failed.');
+  }
+}
+
 export default async function handler(request: VercelRequest, response: VercelResponse) {
   if (request.method !== 'POST') {
     response.setHeader('Allow', 'POST');
@@ -181,11 +214,16 @@ export default async function handler(request: VercelRequest, response: VercelRe
     return sendJson(response, 202, { message: GENERIC_SUCCESS_MESSAGE });
   }
 
+  const errorCategory = classifyBrevoError(providerPayload);
   console.error('Brevo subscription request failed.', {
     status: providerResponse.status,
     code: safeBrevoErrorCode(providerPayload),
-    category: classifyBrevoError(providerPayload),
+    category: errorCategory,
   });
+
+  if (errorCategory.startsWith('template')) {
+    await logTemplateDiagnostics(configuration);
+  }
 
   return sendJson(response, 503, {
     message: 'Subscriptions are temporarily unavailable. Please try again later.',
