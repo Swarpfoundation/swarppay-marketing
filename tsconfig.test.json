@@ -10,5 +10,5 @@
     "outDir": ".tmp/test",
     "types": ["node"]
   },
-  "include": ["src/lib/security.ts", "tests/**/*.ts"]
+  "include": ["src/lib/security.ts", "api/**/*.ts", "tests/**/*.ts"]
 }

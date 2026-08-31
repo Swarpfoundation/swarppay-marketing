@@ -1,73 +1,40 @@
-# React + TypeScript + Vite
+# SwarpPay marketing website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Public marketing website for [swarppay.com](https://swarppay.com), built with React, TypeScript, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Local development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm ci
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Production checks:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run lint
+npm test
+npm run build
 ```
+
+## Subscription page
+
+`/subscribe` provides a custom SwarpPay newsletter form backed by Brevo's double-opt-in API. The browser sends subscription requests only to the same-origin `/api/subscribe` serverless endpoint. The Brevo API key is never included in browser code.
+
+Copy `.env.example` to a local `.env` or configure the same values in the Vercel project:
+
+- `BREVO_API_KEY`: server-side Brevo API key.
+- `BREVO_LIST_ID`: numeric ID of the confirmed newsletter contact list.
+- `BREVO_DOI_TEMPLATE_ID`: numeric ID of the active double-opt-in confirmation template.
+- `BREVO_CONFIRMATION_REDIRECT_URL`: HTTPS URL opened after confirmation.
+- `SUBSCRIBE_ALLOWED_ORIGINS`: comma-separated production origins allowed to submit the form.
+- `SUBSCRIBE_RATE_LIMIT_SALT`: long random server-side value used when hashing rate-limit identifiers.
+
+The endpoint validates and normalizes addresses, requires explicit consent, checks request origin, includes a honeypot, applies a best-effort rate limit, avoids logging email addresses, and returns generic duplicate-safe responses.
+
+## Routes
+
+- `/` — main marketing website
+- `/send-gift` — digital gift landing page
+- `/subscribe` — SwarpPay updates subscription
+- `/legal.html` — terms, privacy, and cookies

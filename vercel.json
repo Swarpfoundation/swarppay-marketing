@@ -3,6 +3,10 @@
     {
       "source": "/send-gift",
       "destination": "/send-gift.html"
+    },
+    {
+      "source": "/subscribe",
+      "destination": "/subscribe.html"
     }
   ],
   "headers": [
