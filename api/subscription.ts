@@ -83,7 +83,7 @@ export function classifyBrevoError(payload: unknown) {
     return 'template_inactive';
   }
   if (
-    serialized.includes('doiurl') ||
+    serialized.includes('doi') ||
     serialized.includes('doi url') ||
     serialized.includes('double opt')
   ) {
