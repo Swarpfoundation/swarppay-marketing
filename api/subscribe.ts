@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import {
+  classifyBrevoError,
   isDuplicateBrevoResponse,
   resolveAllowedOrigins,
   resolveBrevoConfiguration,
@@ -183,6 +184,7 @@ export default async function handler(request: VercelRequest, response: VercelRe
   console.error('Brevo subscription request failed.', {
     status: providerResponse.status,
     code: safeBrevoErrorCode(providerPayload),
+    category: classifyBrevoError(providerPayload),
   });
 
   return sendJson(response, 503, {

@@ -68,3 +68,21 @@ export function safeBrevoErrorCode(payload: unknown) {
   const code = (payload as Record<string, unknown>).code;
   return typeof code === 'string' && /^[a-z0-9_-]{1,64}$/i.test(code) ? code : 'unknown';
 }
+
+export function classifyBrevoError(payload: unknown) {
+  if (!payload || typeof payload !== 'object') return 'unknown';
+
+  let serialized: string;
+  try {
+    serialized = JSON.stringify(payload).toLowerCase();
+  } catch {
+    return 'unknown';
+  }
+
+  if (serialized.includes('template')) return 'template';
+  if (serialized.includes('list')) return 'list';
+  if (serialized.includes('redirect') || serialized.includes('url')) return 'redirection_url';
+  if (serialized.includes('sender')) return 'sender';
+  if (serialized.includes('email') || serialized.includes('contact')) return 'contact';
+  return 'unknown';
+}
