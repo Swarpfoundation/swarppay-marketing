@@ -7,9 +7,26 @@
     {
       "source": "/subscribe",
       "destination": "/subscribe.html"
+    },
+    {
+      "source": "/logo",
+      "destination": "/logo.png"
     }
   ],
   "headers": [
+    {
+      "source": "/logo",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, s-maxage=86400"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "inline; filename=\"swarppay-logo.png\""
+        }
+      ]
+    },
     {
       "source": "/(.*)",
       "headers": [
